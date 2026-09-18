@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 //import Navbar from "@/components/Navbar";
-//import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Producciones R★",
@@ -15,11 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
-    {/*    <Navbar />*/}
-        <main>{children}</main>
-     [{/*   <Footer />*/
-}]      </body>
+      <body className="flex min-h-screen flex-col bg-[#090909] text-white antialiased">
+  <main className="flex flex-1 flex-col">{children}</main>
+</body>
     </html>
   );
 }

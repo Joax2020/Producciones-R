@@ -23,3 +23,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: var(--negro);
+  color: var(--blanco);
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}

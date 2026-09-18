@@ -39,19 +39,84 @@ print("¡Listo! Archivo 'codigo_completo.txt' generado.")
 
 === ARCHIVO: ./src/components/Footer.tsx ===
 
+import Link from "next/link";
+
+const redes = [
+  {
+    name: "Facebook",
+    url: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Instagram",
+    url: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    ),
+  },
+  {
+    name: "TikTok",
+    url: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z" />
+      </svg>
+    ),
+  },
+  {
+    name: "YouTube",
+    url: "#",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+        <polygon fill="black" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      </svg>
+    ),
+  },
+];
+
 export default function Footer() {
-    return(
-        <footer className="bg-black border-t border-red-900/30 py-6">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-                <span className="font-bold text-white">Quique Claros</span>
-                <span>77274927</span>
-                <span>quiqueclarosR@gmail.com</span>
-                <div className="flex gap-4">
-              
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="bg-black border-t border-red-900/40" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
+      <div
+        className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400"
+        style={{ paddingLeft: "clamp(2rem, 5vw, 6rem)", paddingRight: "clamp(2rem, 5vw, 6rem)" }}
+      >
+        {/* Datos de contacto */}
+        <div className="flex flex-col md:flex-row items-center gap-3">
+          <span className="font-bold text-white text-lg tracking-wide">Quique Claros</span>
+          <span className="hidden md:inline text-red-600">|</span>
+          <a href="tel:+59177274927" className="hover:text-red-500 transition-colors">77274927</a>
+          <span className="hidden md:inline text-red-600">|</span>
+          <a href="mailto:quiqueclarosR@gmail.com" className="hover:text-red-500 transition-colors">quiqueclarosR@gmail.com</a>
+        </div>
+
+        {/* Redes Sociales */}
+        <div className="flex gap-3">
+          {redes.map((red) => (
+            <Link 
+              key={red.name} 
+              href={red.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-zinc-900 hover:bg-red-600 flex items-center justify-center text-white transition-all duration-300 hover:scale-110 border border-zinc-800"
+              title={red.name}
+            >
+              {red.icon}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 === ARCHIVO: ./src/components/Navbar.tsx ===
@@ -132,8 +197,8 @@ export default function Navbar() {
 
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+//import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Producciones R★",
@@ -147,9 +212,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
-        <Navbar />
-        <main>{children}</main>
+      <body className="flex min-h-screen flex-col bg-[#090909] text-white antialiased">
+        <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>
     </html>
@@ -159,64 +223,24 @@ export default function RootLayout({
 === ARCHIVO: ./src/app/page.tsx ===
 
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const heroSlides = [
-  {
-    bg: "https://images.unsplash.com/photo-1501386761578-eaa54b4e9a8d?w=1600&q=80",
-    alt: "Concierto 1",
-  },
-  {
-    bg: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&q=80",
-    alt: "Concierto 2",
-  },
-  {
-    bg: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80",
-    alt: "Concierto 3",
-  },
+  "/images/carrusel1.jpg",
+  "/images/carrusel2.jpg",
+  "/images/carrusel3.jpg",
+  "/images/carrusel4.jpg",
+  "/images/carrusel5.jpg",
+  "/images/carrusel6.jpg",
 ];
 
-const redes = [
-  {
-    label: "Facebook",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Instagram",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    label: "TikTok",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z" />
-      </svg>
-    ),
-  },
-  {
-    label: "YouTube",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-      </svg>
-    ),
-  },
+const menuLinks = [
+  { href: "/quienes-somos", label: "Quienes somos" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/artistas", label: "Artistas" },
+  { href: "/agenda", label: "Agenda" },
+  { href: "/galeria", label: "Galería" },
 ];
 
 export default function Home() {
@@ -230,173 +254,65 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      {/* HERO */}
-      <section className="relative h-screen w-full overflow-hidden">
-        {/* Slides */}
-        {heroSlides.map((slide, i) => (
-          <div
-            key={i}
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
-            style={{
-              backgroundImage: `url(${slide.bg})`,
-              opacity: i === current ? 1 : 0,
-            }}
-          />
-        ))}
+    <div className="relative w-full overflow-hidden flex items-center" style={{ minHeight: "calc(100vh - 73px)" }}>
+      
+      {/* Carrusel de fondos */}
+      {heroSlides.map((slide, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url('${slide}')`,
+            opacity: i === current ? 1 : 0,
+          }}
+        />
+      ))}
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+      {/* Capa oscura */}
+      <div className="absolute inset-0 bg-black/50" />
 
-        {/* Contenido hero */}
-        <div className="relative z-10 h-full">
-
-          {/* Nav izquierda */}
-          <nav className="absolute top-20 left-8 flex flex-col gap-2">
-            {[
-              { href: "/quienes-somos", label: "Quiénes somos" },
-              { href: "/servicios", label: "Servicios" },
-              { href: "/artistas", label: "Artistas" },
-              { href: "/agenda", label: "Agenda" },
-              { href: "/galeria", label: "Galería" },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="bg-red-700 hover:bg-red-600 text-white font-bold px-6 py-2.5 rounded w-44 text-center uppercase tracking-wide text-sm transition-all duration-200 hover:scale-105"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Logo — abajo derecha */}
-          <div className="absolute bottom-24 right-8 text-right">
-            <h1 className="font-black text-white uppercase tracking-tight leading-none text-5xl md:text-7xl">
-              PRODUCCIONES{" "}
-              <span className="text-red-600">R</span>
-              <span className="text-red-600">★</span>
-            </h1>
-            <p className="text-yellow-400 font-bold tracking-widest text-sm md:text-base mt-2">
-              20 AÑOS
-            </p>
-            <p className="text-white font-light italic text-lg md:text-2xl mt-1">
-              Queda la música...
-            </p>
-          </div>
-
-          {/* Redes sociales — abajo derecha */}
-          <div className="absolute bottom-8 right-8 flex gap-3">
-            {redes.map((r) => (
-              <a
-                key={r.label}
-                href={r.href}
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-red-600 flex items-center justify-center text-white transition-all duration-200 hover:scale-110"
-                title={r.label}
-              >
-                {r.icon}
-              </a>
-            ))}
-          </div>
-
-        </div>
-
-        {/* Dots indicadores — solo uno */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {heroSlides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-red-500 w-6" : "bg-white/40 w-2"
-              }`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* PRÓXIMOS EVENTOS */}
-      <section className="bg-zinc-900 py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
-            Próximos eventos
-          </h2>
-          <div className="w-16 h-1 bg-red-600 mb-10" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { fecha: "Diciembre 19", artista: "GABO GUZMÁN", show: "SINTIENDO-TE", lugar: "La Sombrerería", ciudad: "Sucre", hora: "19:30" },
-              { fecha: "Enero 15", artista: "ENCUENTRO", show: "GUITARRAS BOLIVIANAS", lugar: "Teatro Municipal", ciudad: "La Paz", hora: "20:00" },
-              { fecha: "Febrero 3", artista: "IRA SUBLIME", show: "TOUR 2026", lugar: "Centro Cultural", ciudad: "Cochabamba", hora: "21:00" },
-            ].map((ev, i) => (
-              <div
-                key={i}
-                className="bg-zinc-800 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-200 cursor-pointer"
-              >
-                <div className="bg-zinc-700 px-4 py-3">
-                  <p className="text-white font-bold">{ev.fecha}</p>
-                  <p className="text-white font-black text-lg">{ev.artista}</p>
-                </div>
-                <div className="bg-red-800/40 px-4 py-2">
-                  <p className="text-red-300 font-bold text-sm tracking-widest">
-                    {ev.show}
-                  </p>
-                </div>
-                <div className="px-4 py-4 text-center">
-                  <p className="text-white font-bold">{ev.ciudad}</p>
-                  <p className="text-gray-400 text-sm">{ev.lugar}</p>
-                  <p className="text-gray-400 text-sm">{ev.hora} hs</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
+      {/* Contenedor principal */}
+      <div className="relative z-10 flex w-full flex-col items-center justify-between gap-8 py-12 md:flex-row md:py-0" style={{ paddingLeft: "clamp(2rem, 5vw, 6rem)", paddingRight: "clamp(2rem, 5vw, 6rem)" }}>
+        
+        {/* Columna Izquierda: Menú */}
+        <nav className="flex flex-col gap-5 w-full md:w-auto">
+          {menuLinks.map((link) => (
             <Link
-              href="/agenda"
-              className="bg-red-700 hover:bg-red-600 text-white font-bold px-8 py-3 rounded uppercase tracking-wider transition-all duration-200 hover:scale-105 inline-block"
+              key={link.href}
+              href={link.href}
+              className="bg-[#cc0000]/30 backdrop-blur-sm text-white font-bold text-xs uppercase tracking-widest px-6 rounded-lg text-center transition-all duration-300 hover:translate-x-2 hover:bg-red-500/70 border-l-4 border-red-900 hover:border-white shadow-lg w-full md:w-52"
+style={{ paddingTop: "0.65rem", paddingBottom: "0.65rem" }}
             >
-              Ver agenda completa
+              {link.label}
             </Link>
-          </div>
-        </div>
-      </section>
+          ))}
+        </nav>
 
-      {/* ARTISTAS */}
-      <section className="bg-black py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
-            Nuestros artistas
-          </h2>
-          <div className="w-16 h-1 bg-red-600 mb-10" />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { nombre: "Gabo Guzmán", genero: "Pop / Rock", img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80" },
-              { nombre: "Encuentro", genero: "Guitarras Bolivianas", img: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80" },
-              { nombre: "Ira Sublime", genero: "Rock", img: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&q=80" },
-            ].map((a, i) => (
-              <Link key={i} href="/artistas">
-                <div className="relative group rounded-xl overflow-hidden cursor-pointer">
-                  <img
-                    src={a.img}
-                    alt={a.nombre}
-                    className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6">
-                    <p className="text-white font-black text-xl">{a.nombre}</p>
-                    <p className="text-red-400 text-sm font-bold tracking-widest uppercase">
-                      {a.genero}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+        {/* Columna Derecha: Logo */}
+        <div className="flex justify-center md:justify-end w-full md:w-1/2">
+          <img 
+            src="/images/logo.png" 
+            alt="Producciones R - 20 Años" 
+            className="w-full max-w-[480px] drop-shadow-2xl"
+          />
         </div>
-      </section>
-    </>
+
+      </div>
+
+      {/* Reproductor Spotify flotante */}
+{/* Reproductor Spotify flotante */}
+<div className="fixed top-4 right-4 z-50 shadow-2xl rounded-xl overflow-hidden opacity-90 hover:opacity-100 transition-opacity">
+  <iframe
+    src="https://open.spotify.com/embed/playlist/33Dm12hmIjAHgyBmitH1Bj?utm_source=generator"
+    width="300"
+    height="80"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+    style={{ borderRadius: "12px" }}
+  />
+</div>
+    </div>
   );
 }
 
@@ -428,142 +344,76 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--negro);
+  color: var(--blanco);
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
 === ARCHIVO: ./src/app/quienes-somos/page.tsx ===
 
 import Link from "next/link";
 
-const servicios = [
-  "Eventos culturales",
-  "Management musical",
-  "Booking musical",
-  "Producción y postproducción discográfica",
-  "Actividades de formación artística",
-  "Comunicación",
-  "Sello musical digital – QUMBRE MUSIC",
-];
-
-const aliados = ["Altafonte", "Orchard", "Par Mil", "Qumbre Music", "MMF Latam"];
-
 export default function QuienesSomos() {
   return (
-    <div className="min-h-screen bg-zinc-900 pt-20">
+    <div className="min-h-screen bg-black pt-32 pb-16">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Título Principal */}
+        <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-wider mb-12 inline-block">
+          Quiénes <span className="text-red-600">somos</span>
+          <div className="w-1/2 h-1 bg-red-600 mt-2"></div>
+        </h1>
 
-      {/* HERO SECTION */}
-      <section
-        className="relative py-24 px-6 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1600&q=80)",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tight">
-            Quiénes <span className="text-red-600">somos</span>
-          </h1>
-          <div className="w-24 h-1 bg-red-600 mt-4" />
-        </div>
-      </section>
+        {/* Contenido Principal: Imagen y Textos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
+          
+          {/* Imagen del Avatar */}
+          <div className="flex justify-center md:justify-start">
+            <img 
+              src="/images/avatar-quique.png" 
+              alt="Quique Claros - Producciones R" 
+              className="w-full max-w-md rounded-2xl shadow-2xl shadow-red-900/20 object-cover"
+            />
+          </div>
 
-      {/* PRESENTACIÓN */}
-      <section className="py-16 px-6 bg-zinc-900">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
-          {/* Foto / logo placeholder */}
-          <div className="flex justify-center">
-            <div className="w-72 h-72 rounded-2xl bg-zinc-800 border-2 border-red-700 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-red-600 text-6xl font-black">R★</p>
-                <p className="text-white text-sm mt-2 tracking-widest uppercase">
-                  Logo aquí
-                </p>
-              </div>
+          {/* Textos descriptivos */}
+          <div className="space-y-6 text-gray-300 leading-relaxed text-justify">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercise molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+            
+            <div className="pt-4 border-t border-red-900/30">
+              <p className="font-bold text-white text-xl">
+                Nuestra visión es...... nuestra misión es.....
+              </p>
             </div>
           </div>
+        </div>
 
-          {/* Texto */}
-          <div className="space-y-6">
-            <div className="inline-block bg-red-700 px-4 py-2 rounded">
-              <h2 className="text-white font-black text-xl uppercase tracking-wide">
-                Quiénes somos
-              </h2>
+        {/* Sección de Objetivos */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+          {[
+            { titulo: "objetivo 1" },
+            { titulo: "objetivo 2" },
+            { titulo: "objetivo 3" },
+          ].map((obj, i) => (
+            <div key={i} className="bg-zinc-900 border border-zinc-800 p-8 rounded-xl hover:border-red-600 transition-colors duration-300 group">
+              <h3 className="text-xl font-black text-white uppercase tracking-wider mb-4 border-b border-zinc-700 group-hover:border-red-600/50 pb-2 transition-colors">
+                {obj.titulo}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed text-justify">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+              </p>
             </div>
-
-            <p className="text-gray-300 leading-relaxed">
-              Producciones R★ es una empresa boliviana dedicada a la gestión y
-              producción de eventos culturales y musicales con más de 20 años de
-              trayectoria. Hemos sido parte de más de 300 conciertos desde 2006,
-              trabajando con artistas nacionales e internacionales en distintos
-              escenarios de Bolivia y el mundo.
-            </p>
-
-            <p className="text-gray-300 leading-relaxed">
-              Nuestro trabajo abarca desde la generación de la idea hasta la
-              comunicación finalizado el evento: diseño escénico, gestión de
-              espacios, coordinación institucional, producción técnica, montaje,
-              hospitalidad, venta de entradas y registros audiovisuales.
-            </p>
-
-            <p className="text-gray-400 italic border-l-4 border-red-600 pl-4">
-              Nuestra misión: conectar artistas y audiencias a través de
-              experiencias culturales únicas. Nuestra visión: ser el referente
-              de la producción musical en Bolivia y la región.
-            </p>
-          </div>
+          ))}
         </div>
-      </section>
 
-      {/* SERVICIOS LIST */}
-      <section className="py-16 px-6 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
-            Lo que hacemos
-          </h2>
-          <div className="w-16 h-1 bg-red-600 mb-10" />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {servicios.map((s, i) => (
-              <Link
-                key={i}
-                href="/servicios"
-                className="group flex items-center gap-4 bg-zinc-900 hover:bg-red-700 border border-zinc-800 hover:border-red-600 rounded-xl px-6 py-4 transition-all duration-200"
-              >
-                <span className="text-red-500 group-hover:text-white text-2xl font-black">
-                  ★
-                </span>
-                <span className="text-white font-semibold text-sm uppercase tracking-wide">
-                  {s}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ALIADOS */}
-      <section className="py-16 px-6 bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-black text-white uppercase tracking-wider mb-2">
-            Nuestros aliados
-          </h2>
-          <div className="w-16 h-1 bg-red-600 mb-10" />
-
-          <div className="flex flex-wrap gap-6 items-center justify-center md:justify-start">
-            {aliados.map((a, i) => (
-              <div
-                key={i}
-                className="bg-zinc-800 border border-zinc-700 rounded-xl px-8 py-4 text-white font-bold tracking-widest uppercase text-sm hover:border-red-600 transition-colors"
-              >
-                {a}
-              </div>
-            ))}
-          </div>
-          <p className="text-zinc-500 text-sm mt-4">
-            * Los logos reales irán aquí cuando estén disponibles
-          </p>
-        </div>
-      </section>
-
+      </div>
     </div>
   );
 }
