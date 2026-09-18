@@ -26,7 +26,7 @@ export default function EnConstruccion() {
           Sitio en Construcción
         </h2>
         <p className="text-gray-300 mx-auto text-lg mt-4 max-w-xl">
-          Estamos preparando nuestra nueva experiencia digital. Muy pronto podrás conocer toda nuestra agenda, artistas y servicios.
+          Estamos preparando nuestra nueva experiencia. Muy pronto podrás conocer toda nuestra agenda, artistas y servicios.
         </p>
 
         {/* Botón de contacto */}
