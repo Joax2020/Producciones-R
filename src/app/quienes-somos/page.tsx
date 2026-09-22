@@ -58,6 +58,14 @@ const servicios = [
   "Comunicación",
 ];
 
+// Tamaños de los logos reducidos al máximo
+const logosAliados = [
+  { src: "/images/Qumbre.png", customClass: "h-6 md:h-8 lg:h-10" }, // Logo 1
+  { src: "/images/Altafonte2.png", customClass: "h-4 md:h-5 lg:h-6" },  // Logo 2
+  { src: "/images/Orchard.png", customClass: "h-4 md:h-5 lg:h-6" },    // Logo 3
+  { src: "/images/MMFLatam.png", customClass: "h-6 md:h-8 lg:h-10" } // Logo 4
+];
+
 export default function QuienesSomos() {
   return (
     <div className="h-screen w-full flex flex-col overflow-hidden bg-[#9e4a4a]">
@@ -67,10 +75,10 @@ export default function QuienesSomos() {
         className="flex-1 flex flex-col w-full min-h-0 relative bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/images/quienessomos.png')`, 
+          filter: "brightness(1.2)", 
         }}
       >
         
-        {/* CAPA PARA ACLARAR EL FONDO (Puedes jugar con bg-white/10, bg-white/20, etc.) */}
         <div className="absolute inset-0 bg-white/15 z-0 pointer-events-none"></div>
 
         {/* CONTENEDOR CENTRAL */}
@@ -108,45 +116,51 @@ export default function QuienesSomos() {
           </header>
 
           {/* ── CONTENIDO: Logo + Texto ── */}
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 mt-2 mb-6 flex-1 min-h-0 items-center">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 mt-2 mb-4 flex-1 min-h-0 items-center">
 
-            <div className="w-full md:w-5/12 flex justify-center md:justify-start shrink-0">
+            <div className="w-full md:w-4/12 flex justify-center md:justify-end shrink-0">
               <img
                 src="/images/20años.png"
                 alt="Producciones R - 20 Años"
-                className="w-full max-w-[280px] object-contain drop-shadow-2xl"
+                className="w-full max-w-[240px] lg:max-w-[280px] object-contain drop-shadow-2xl"
               />
             </div>
 
-            <div className="w-full md:w-7/12 flex flex-col gap-4 overflow-y-auto pr-2" style={{ maxHeight: "100%" }}>
-              <div className="bg-[#cc0000] px-6 py-2 rounded-md w-max shadow-md shrink-0">
-                <h2 className="text-white font-bold text-xs md:text-sm tracking-widest uppercase">
+            <div className="w-full md:w-8/12 flex flex-col gap-3 lg:gap-4 shrink-0">
+              <div className="bg-[#cc0000] px-4 lg:px-6 py-1.5 lg:py-2 rounded-md w-max shadow-md shrink-0">
+                <h2 className="text-white font-bold text-[10px] md:text-xs lg:text-sm tracking-widest uppercase">
                   Quienes somos
                 </h2>
               </div>
 
-              <div className="space-y-6 text-white text-xs sm:text-sm leading-relaxed text-justify pb-4">
+              <div className="text-white text-[11px] md:text-xs lg:text-[13px] xl:text-sm leading-snug md:leading-normal text-justify">
                 <p className="drop-shadow-md">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                  euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                  minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                  aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-                  vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
-                  facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-                  luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                  Nacemos en octubre de 2006 con el objetivo de establecernos como productora de eventos artísticos en diversas áreas, abarcando la música, danza, teatro, cine y también incursionando en la edición de libros y consultorías culturales. 
+                </p>
+                <p>
+                  Poco a poco vamos perfilándonos casi exclusivamente dentro la música, constituyéndonos en la actualidad como una productora de diseño, gestión y producción de eventos musicales, agencia de management y booking musical en Bolivia. 
+                </p>
+                <p>
+                  Somos miembros de la Asociación Latinoamericana de Managers Musicales (MMF Latam).
+                </p>
+                <p>
+                  Crecemos con la misión de contribuir al desarrollo artístico de Bolivia y a la profesionalización de los eventos artísticos y del sector que agrupa a productores, managers, bookers, programadores, curadores y técnicos en el área musical, buscando vincular a nuestro país con los circuitos internacionales. 
+                </p>
+                <p>
+                  Los servicios que Producciones R ofrece son:
                 </p>
               </div>
             </div>
           </div>
 
           {/* ── GRILLA DE SERVICIOS ── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-x-4 gap-y-6 pb-8 shrink-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
             {servicios.map((servicio, index) => (
               <div key={index} className="flex items-center gap-4 w-full max-w-[260px] mx-auto">
                 <img
                   src="/images/estrella.png"
                   alt="★"
-                  className="w-10 h-10 md:w-12 md:h-12 shrink-0 object-contain drop-shadow-lg"
+                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
                 />
                 <span className="text-white font-bold text-xs md:text-sm leading-tight text-balance drop-shadow-md">
                   {servicio}
@@ -159,11 +173,19 @@ export default function QuienesSomos() {
       </div>
 
       {/* ── LOGOS ALIADOS ── */}
-      <div className="w-full py-6 md:py-8 text-center shrink-0 z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.15)] bg-[#d4a0a0]">
-        <h3 className="font-black text-sm md:text-base tracking-[0.5em] uppercase text-[#8b0000]">
-          LOGOS ALIADOS
-        </h3>
-        <div className="mt-4 flex flex-wrap justify-center gap-10 min-h-[40px] px-8 md:px-16" />
+      {/* Padding reducido al mínimo (py-1) para forzar la delgadez */}
+      <div className="w-full py-1 flex items-center justify-center shrink-0 z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.15)] bg-[#000]">
+        
+        <div className="w-full max-w-[1000px] flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-20 px-8 md:px-16">
+          {logosAliados.map((logo, index) => (
+            <img
+              key={index}
+              src={logo.src}
+              alt={`Logo Aliado ${index + 1}`}
+              className={`${logo.customClass} w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 drop-shadow-sm`}
+            />
+          ))}
+        </div>
       </div>
 
     </div>
