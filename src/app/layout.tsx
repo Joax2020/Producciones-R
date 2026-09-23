@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-// Importamos los pesos más importantes de la fuente Aktiv Grotesk
 const aktivGrotesk = localFont({
   src: [
     {
@@ -31,12 +30,11 @@ const aktivGrotesk = localFont({
       style: 'normal',
     },
     {
-      path: './fonts/AktivGrotesk-Black.otf',
+      path: './fonts/AktivGrotesk-Black.otf', // Recuerda que este lo dejamos en .otf
       weight: '900',
       style: 'normal',
     },
   ],
-  variable: '--font-aktiv', // Definimos una variable CSS para usarla en Tailwind
 });
 
 export const metadata: Metadata = {
@@ -51,8 +49,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      {/* Aplicamos la variable de la fuente al body */}
-      <body className={`${aktivGrotesk.variable} font-sans flex min-h-screen flex-col bg-[#090909] text-white antialiased`}>
+      {/* CAMBIO CLAVE: Usamos aktivGrotesk.className directamente aquí */}
+      <body className={`${aktivGrotesk.className} flex min-h-screen flex-col bg-[#090909] text-white antialiased`}>
         <main className="flex flex-1 flex-col">{children}</main>
       </body>
     </html>
