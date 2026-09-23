@@ -58,7 +58,6 @@ type Servicio = {
   lado: "izquierda" | "derecha";
 };
 
-// Hemos importado todos los textos de tu Word y añadido el 7mo servicio
 const servicios: Servicio[] = [
   {
     id: "eventos-culturales",
@@ -147,183 +146,176 @@ export default function Servicios() {
   const derecha = servicios.filter((s) => s.lado === "derecha");
 
   return (
-    <div className="min-h-screen w-full bg-[#9e4a4a]">
-      {/* Añadido bg-fixed para que si la Vista 2 es muy larga, el fondo acompañe sin cortarse */}
-      <div
-        className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-x-hidden"
-        style={{
-          backgroundImage: `url('/images/servicios.png')`,
-          filter: "brightness(1.1)",
-        }}
-      >
-        <div className="absolute inset-0 bg-white/10 pointer-events-none" />
-
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col min-h-screen">
-          
-          {/* ── HEADER ── */}
-          <header className="w-full flex items-center justify-between pt-6 md:pt-10 pb-4 shrink-0">
-            <h1 className="text-[#8b0000] font-black text-2xl md:text-3xl tracking-widest uppercase drop-shadow-md">
-              Servicios
-            </h1>
-
-            <nav className="flex gap-3 md:gap-6 z-30">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="bg-[#cc0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 px-4 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[100px] md:w-[150px]"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </header>
-
-          {/* ── CONTENIDO PRINCIPAL ── */}
-          <div className="flex-1 flex flex-col items-center justify-center py-8 relative">
-            {!servicioSeleccionado ? (
-              
-              // ── VISTA 1: disco + botones ──
-              <div className="relative w-full h-full flex flex-col md:flex-row items-center justify-between min-h-[60vh]">
-                
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                  <img
-                    src="/images/disco.png"
-                    alt="Disco - Servicios Producciones R"
-                    className="w-[90vw] md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85]"
-                  />
-                </div>
-
-                <div className="hidden md:flex flex-col justify-center gap-8 lg:gap-12 z-20 w-[180px] lg:w-[220px]">
-                  {izquierda.map((s) => (
-                    <button
-                      key={s.id}
-                      onClick={() => setServicioActivo(s.id)}
-                      className="bg-white text-[#cc0000] font-bold text-xs lg:text-[13px] px-4 py-3 lg:py-4 rounded-md shadow-xl hover:scale-105 hover:bg-gray-100 transition-all w-full text-center"
-                    >
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="hidden md:flex flex-col justify-center gap-8 lg:gap-12 z-20 w-[180px] lg:w-[220px]">
-                  {derecha.map((s) => (
-                    <button
-                      key={s.id}
-                      onClick={() => setServicioActivo(s.id)}
-                      className="bg-white text-[#cc0000] font-bold text-xs lg:text-[13px] px-4 py-3 lg:py-4 rounded-md shadow-xl hover:scale-105 hover:bg-gray-100 transition-all w-full text-center"
-                    >
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Botones apilados en mobile */}
-                <div className="flex md:hidden flex-col gap-4 w-full max-w-xs z-20 mx-auto mt-10">
-                  {servicios.map((s) => (
-                    <button
-                      key={s.id}
-                      onClick={() => setServicioActivo(s.id)}
-                      className="bg-white text-[#cc0000] font-bold text-xs px-4 py-3 rounded-md shadow-lg hover:scale-105 transition-transform text-center"
-                    >
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-            ) : (
-
-              // ── VISTA 2: Estilo "Bloque negro inferior" como en el PDF ──
-              <div className="w-full flex flex-col flex-1 relative z-20 mt-4 md:mt-12">
-                
-                {/* Botón Volver */}
-                <button
-                  onClick={() => setServicioActivo(null)}
-                  className="self-start text-[#cc0000] font-black text-xs md:text-sm uppercase tracking-widest hover:text-white transition-colors mb-6 md:mb-10 px-4 py-2 bg-black/20 rounded-md"
-                >
-                  ← Volver a Servicios
-                </button>
-
-                {/* Título flotando arriba a la izquierda como en el diseño */}
-                <div className="flex items-center gap-3 mb-10 md:mb-16">
-                  <img
-                    src="/images/estrella.png"
-                    alt="★"
-                    className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-lg"
-                  />
-                  <h2 className="text-[#8b0000] font-black text-lg md:text-xl lg:text-2xl leading-tight drop-shadow-md max-w-[200px] md:max-w-[250px]">
-                    {servicioSeleccionado.titulo}
-                  </h2>
-                </div>
-
-                {/* Disco de fondo (mitad visible detrás del título) */}
-                <div className="absolute top-0 right-0 md:right-10 flex items-center justify-center pointer-events-none z-[-1]">
-                  <img
-                    src="/images/disco.png"
-                    alt="Disco Fondo"
-                    className="w-[120vw] md:w-[700px] lg:w-[900px] aspect-square object-contain opacity-[0.4]"
-                  />
-                </div>
-
-                {/* Bloque negro full-width (rompiendo el contenedor) que contiene todo el texto */}
-                <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-[#111111]/95 flex-1 pt-8 pb-12 md:pt-12 md:pb-16 shadow-2xl mt-auto">
-                  <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
-                    
-                    <div className="flex flex-col gap-4 text-white/90 text-xs md:text-sm lg:text-[13px] leading-relaxed text-justify mb-10">
-                      {servicioSeleccionado.descripcion.map((parrafo, i) => (
-                        <p key={i} className="whitespace-pre-line">{parrafo}</p>
-                      ))}
-                    </div>
-
-                    {/* Footer interno dentro de la caja negra (Vista 2) */}
-                    <div className="mt-auto flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/10 pt-6">
-                      <div className="flex gap-8 text-[#cc0000] font-bold text-sm uppercase tracking-widest">
-                        <span>Contactos</span>
-                        <span>Facebook</span>
-                      </div>
-                      <div className="flex gap-4">
-                        {redes.map((red) => (
-                          <a
-                            key={red.name}
-                            href={red.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white hover:text-red-500 transition-transform duration-300 hover:scale-110 drop-shadow-md"
-                          >
-                            {red.icon}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-              </div>
-            )}
-          </div>
-
-          {/* ── REDES SOCIALES (Solo en Vista 1) ── */}
-          {!servicioSeleccionado && (
-            <div className="flex justify-end gap-4 pb-6 shrink-0 relative z-30">
-              {redes.map((red) => (
-                <a
-                  key={red.name}
-                  href={red.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-red-300 transition-transform duration-300 hover:scale-110 drop-shadow-md"
-                  title={red.name}
-                >
-                  {red.icon}
-                </a>
-              ))}
-            </div>
-          )}
-
+    // Bloqueamos el scroll global
+    <div className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative">
+      
+      {/* ── FONDOS ESTÁTICOS ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/images/servicios.png')`,
+            filter: "brightness(1.1)",
+          }}
+        />
+        <div className="absolute inset-0 bg-white/10" />
+        
+        {/* Disco centrado inamovible */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img
+            src="/images/disco.png"
+            alt="Disco Fondo"
+            className="w-[90vw] md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85]"
+          />
         </div>
       </div>
+
+      {/* ── CONTENIDO SUPERIOR ── */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
+        
+        {/* ── HEADER ── */}
+        <header className="w-full flex items-center justify-between pt-6 md:pt-10 pb-4 shrink-0 pointer-events-auto">
+          <h1 className="text-[#8b0000] font-black text-2xl md:text-3xl tracking-widest uppercase drop-shadow-md">
+            Servicios
+          </h1>
+
+          <nav className="flex gap-3 md:gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="bg-[#cc0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 px-4 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[100px] md:w-[150px]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </header>
+
+        {/* ── ZONA DINÁMICA (Botones o Título Activo) ── */}
+        <div className="flex-1 relative w-full pointer-events-auto">
+          
+          {!servicioSeleccionado ? (
+            /* VISTA 1: BOTONES A LOS LADOS */
+            <div className="absolute inset-0 flex items-center justify-between">
+              
+              <div className="hidden md:flex flex-col gap-8 lg:gap-12 w-[180px] lg:w-[220px]">
+                {izquierda.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setServicioActivo(s.id)}
+                    className="bg-white text-[#cc0000] font-bold text-xs lg:text-[13px] px-4 py-3 lg:py-4 rounded-md shadow-xl hover:scale-105 hover:bg-gray-100 transition-all w-full text-center"
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="hidden md:flex flex-col gap-8 lg:gap-12 w-[180px] lg:w-[220px]">
+                {derecha.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setServicioActivo(s.id)}
+                    className="bg-white text-[#cc0000] font-bold text-xs lg:text-[13px] px-4 py-3 lg:py-4 rounded-md shadow-xl hover:scale-105 hover:bg-gray-100 transition-all w-full text-center"
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Botones en mobile */}
+              <div className="flex md:hidden flex-col gap-4 w-full max-w-xs mx-auto mt-10 overflow-y-auto max-h-[60vh]">
+                {servicios.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setServicioActivo(s.id)}
+                    className="bg-white text-[#cc0000] font-bold text-xs px-4 py-3 rounded-md shadow-lg hover:scale-105 transition-transform text-center"
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* VISTA 2: ESTRELLA + TÍTULO */
+            <div className="absolute left-0 top-6 md:top-10 flex flex-col items-start animate-in fade-in duration-300">
+              <button
+                onClick={() => setServicioActivo(null)}
+                className="text-[#8b0000] font-bold text-xs md:text-sm uppercase tracking-widest hover:text-white transition-colors mb-6 md:mb-8 flex items-center gap-2"
+              >
+                &lt; Volver a Servicios
+              </button>
+
+              <div className="flex items-center gap-4">
+                <img
+                  src="/images/estrella.png"
+                  alt="★"
+                  className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-2xl"
+                />
+                <h2 className="text-[#cc0000] font-bold text-xl md:text-2xl lg:text-3xl leading-tight drop-shadow-md max-w-[150px] md:max-w-[200px]">
+                  {servicioSeleccionado.titulo}
+                </h2>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* ── REDES SOCIALES (Solo en Vista 1) ── */}
+        {!servicioSeleccionado && (
+          <div className="flex justify-end gap-4 pb-6 shrink-0 mt-auto pointer-events-auto">
+            {redes.map((red) => (
+              <a
+                key={red.name}
+                href={red.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-red-300 transition-transform duration-300 hover:scale-110 drop-shadow-md"
+              >
+                {red.icon}
+              </a>
+            ))}
+          </div>
+        )}
+
+      </div>
+
+      {/* ── PANEL NEGRO INFERIOR (Solo en Vista 2) ── */}
+      {servicioSeleccionado && (
+        <div className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
+          <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
+            
+            {/* Scroll de texto */}
+            <div className="flex-1 overflow-y-auto py-8 text-white/90 text-xs md:text-sm lg:text-[15px] leading-relaxed text-justify space-y-5 pr-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-red-700/50 [&::-webkit-scrollbar-track]:bg-transparent">
+              {servicioSeleccionado.descripcion.map((parrafo, i) => (
+                <p key={i} className="whitespace-pre-line">{parrafo}</p>
+              ))}
+            </div>
+
+            {/* Footer interno */}
+            <div className="shrink-0 py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4 md:gap-8 text-[#cc0000] font-black text-xs md:text-sm uppercase tracking-widest">
+                <span>Contactos</span>
+                <span>Facebook</span>
+              </div>
+              <div className="flex gap-4">
+                {redes.map((red) => (
+                  <a
+                    key={red.name}
+                    href={red.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-red-500 transition-transform duration-300 hover:scale-110"
+                  >
+                    {red.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
