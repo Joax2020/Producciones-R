@@ -46,8 +46,10 @@ const redes = [
 
 const navLinks = [
   { href: "/", label: "Inicio" },
+  { href: "/quienes-somos", label: "Conócenos" },
   { href: "/artistas", label: "Artistas" },
-  { href: "/contactos", label: "Contactos" },
+  { href: "/agenda", label: "Agenda" },
+  { href: "/contactos", label: "Contáctanos" },
 ];
 
 type Servicio = {
@@ -76,7 +78,7 @@ const servicios: Servicio[] = [
   },
   {
     id: "management-musical",
-    label: "Management musical",
+    label: "Management",
     titulo: "Management musical",
     descripcion: [
       "- Gestión estratégica de carreras y proyectos musicales. Desarrollo a corto y largo plazo. Administración de contratos, acuerdos, finanzas, equipos de trabajo, red de contactos, imagen, marca, difusión…",
@@ -86,7 +88,7 @@ const servicios: Servicio[] = [
   },
   {
     id: "booking-musical",
-    label: "Booking musical",
+    label: "Booking",
     titulo: "Booking musical",
     descripcion: [
       "- Somos miembros de la Asociación Latinoamericana de Managers y hemos construido una red internacional de productores y programadores que nos ha permitido estar en distintos mercados de la música en Sudamérica, gestando diversas conexiones que han dado lugar a presentaciones y giras de artistas bolivianos.",
@@ -96,7 +98,7 @@ const servicios: Servicio[] = [
   },
   {
     id: "produccion-postproduccion",
-    label: "Producción y postproducción",
+    label: "Producción discográfica",
     titulo: "Producción y post-producción discográfica",
     descripcion: [
       "- Coordinación de equipos de trabajo: músicos, productores, ingenieros, diseñadores. Gestión de estudios de grabación, imprentas, plataformas musicales…"
@@ -105,7 +107,7 @@ const servicios: Servicio[] = [
   },
   {
     id: "formacion-artistica",
-    label: "Actividades de formación artística",
+    label: "Formación artística",
     titulo: "Actividades de formación artística",
     descripcion: [
       "- Organización de cursos, charlas, talleres y otros espacios de formación artística.",
@@ -148,7 +150,6 @@ export default function Servicios() {
   return (
     // Bloqueamos el scroll global
     <div className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative">
-      
       {/* ── FONDOS ESTÁTICOS ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
@@ -160,12 +161,13 @@ export default function Servicios() {
         />
         <div className="absolute inset-0 bg-white/10" />
         
-        {/* Disco centrado inamovible */}
+        {/* Disco centrado inamovible y GIRANDO */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src="/images/disco.png"
             alt="Disco Fondo"
-            className="w-[90vw] md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85]"
+            // Añadimos animate-[spin_20s_linear_infinite] para un giro suave
+            className="w-[90vw] md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85] animate-[spin_20s_linear_infinite]"
           />
         </div>
       </div>
@@ -174,17 +176,26 @@ export default function Servicios() {
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
         
         {/* ── HEADER ── */}
-        <header className="w-full flex items-center justify-between pt-6 md:pt-10 pb-4 shrink-0 pointer-events-auto">
-          <h1 className="text-[#8b0000] font-black text-2xl md:text-3xl tracking-widest uppercase drop-shadow-md">
-            Servicios
-          </h1>
+        {/* ── HEADER (Solo navegación) ── */}
+       {/* ── HEADER ── */}
+        <header className="w-full pt-6 md:pt-10 pb-4 shrink-0 pointer-events-auto flex z-30 relative">
+          
+          {/* LOGO FLOTANTE A LA IZQUIERDA (No empuja ni altera los botones) */}
+          <Link href="/" className="absolute left-0 md:left-0 lg:-left-8 top-4 md:top-6 w-[120px] md:w-[180px] lg:w-[220px] transition-transform hover:scale-105 z-40">
+            <img
+              src="/images/logo20centro.png" 
+              alt="Producciones R 20 Años"
+              className="w-full h-auto object-contain drop-shadow-md"
+            />
+          </Link>
 
-          <nav className="flex gap-3 md:gap-6">
+          {/* TU NAVEGACIÓN INTACTA */}
+          <nav className="w-full flex justify-end gap-4 md:gap-6 mb-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="bg-[#cc0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 px-4 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[100px] md:w-[150px]"
+                className="bg-[#8b0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 rounded-lg hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[110px] md:w-[160px]"
               >
                 {link.label}
               </Link>
@@ -196,10 +207,19 @@ export default function Servicios() {
         <div className="flex-1 relative w-full pointer-events-auto">
           
           {!servicioSeleccionado ? (
-            /* VISTA 1: BOTONES A LOS LADOS */
+            /* ── VISTA 1: BOTONES A LOS LADOS ── */
             <div className="absolute inset-0 flex items-center justify-between">
               
-              <div className="hidden md:flex flex-col gap-8 lg:gap-12 w-[180px] lg:w-[220px]">
+              {/* Columna izquierda de botones */}
+              <div className="hidden md:flex flex-col justify-center gap-8 lg:gap-12 w-[180px] lg:w-[220px] relative">
+                
+                {/* TÍTULO CENTRADO EXACTAMENTE SOBRE ESTA COLUMNA */}
+              <div className="absolute bottom-[100%] mb-12 lg:mb-20 left-1/2 -translate-x-1/2 bg-[#cc0000] px-4 lg:px-6 py-1.5 lg:py-2 rounded-md w-max shadow-md">
+                  <h1 className="text-white font-bold text-[10px] md:text-xs lg:text-sm tracking-widest uppercase">
+                    Servicios
+                  </h1>
+                </div>
+
                 {izquierda.map((s) => (
                   <button
                     key={s.id}
@@ -211,7 +231,8 @@ export default function Servicios() {
                 ))}
               </div>
 
-              <div className="hidden md:flex flex-col gap-8 lg:gap-12 w-[180px] lg:w-[220px]">
+              {/* Columna derecha de botones */}
+              <div className="hidden md:flex flex-col justify-center gap-8 lg:gap-12 w-[180px] lg:w-[220px]">
                 {derecha.map((s) => (
                   <button
                     key={s.id}
@@ -223,8 +244,15 @@ export default function Servicios() {
                 ))}
               </div>
 
-              {/* Botones en mobile */}
-              <div className="flex md:hidden flex-col gap-4 w-full max-w-xs mx-auto mt-10 overflow-y-auto max-h-[60vh]">
+              {/* Botones en mobile (Añadimos el título aquí también) */}
+              <div className="flex md:hidden flex-col gap-4 w-full max-w-xs mx-auto mt-6 overflow-y-auto max-h-[60vh]">
+                
+                <div className="bg-[#cc0000] px-4 py-1.5 rounded-md w-max shadow-md mx-auto mb-2">
+                  <h1 className="text-white font-bold text-[10px] tracking-widest uppercase">
+                    Servicios
+                  </h1>
+                </div>
+
                 {servicios.map((s) => (
                   <button
                     key={s.id}

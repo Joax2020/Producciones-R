@@ -12,11 +12,11 @@ const heroSlides = [
 ];
 
 const menuLinks = [
-  { href: "/quienes-somos", label: "Quienes somos" },
-  { href: "/servicios", label: "Servicios" },
+  { href: "/quienes-somos", label: "Conócenos" },
+  { href: "/servicios", label: "Qué hacemos" },
   { href: "/artistas", label: "Artistas" },
   { href: "/agenda", label: "Agenda" },
-  { href: "/galeria", label: "Galería" },
+  { href: "/contactos", label: "Contáctanos" },
 ];
 
 export default function Home() {
@@ -32,6 +32,13 @@ export default function Home() {
   return (
     <div className="relative w-full overflow-hidden flex items-center" style={{ minHeight: "100vh" }}>
       
+      {/* ── ETIQUETA "EN CONSTRUCCIÓN" ── */}
+      <div className="absolute top-6 left-6 md:top-10 md:left-12 z-50 bg-black/50 backdrop-blur-md border border-white/10 text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-3">
+        <span className="w-2.5 h-2.5 rounded-full bg-[#cc0000] animate-pulse shadow-[0_0_8px_#cc0000]"></span>
+        <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-90">
+          Sitio en construcción
+        </span>
+      </div>
       {/* Carrusel de fondos */}
       {heroSlides.map((slide, i) => (
         <div

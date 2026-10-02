@@ -45,8 +45,10 @@ const redes = [
 
 const navLinks = [
   { href: "/", label: "Inicio" },
+  { href: "/servicios", label: "Qué hacemos" },
   { href: "/artistas", label: "Artistas" },
   { href: "/agenda", label: "Agenda" },
+  { href: "/contactos", label: "Contáctanos" },
 ];
 
 const servicios = [
@@ -85,9 +87,10 @@ export default function QuienesSomos() {
         <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col flex-1 min-h-0 relative z-10">
 
           {/* ── HEADER ── */}
-          <header className="w-full flex items-center justify-between pt-6 md:pt-10 pb-4 shrink-0">
+          {/* ── HEADER (Navegación más ajustada) ── */}
+          <header className="w-full flex items-center justify-between pt-6 md:pt-8 pb-4 shrink-0">
             
-            <div className="flex gap-4 sm:gap-6">
+            <div className="flex gap-3 sm:gap-5">
               {redes.map((red) => (
                 <a
                   key={red.name}
@@ -102,12 +105,13 @@ export default function QuienesSomos() {
               ))}
             </div>
 
-            <nav className="flex gap-4 md:gap-6">
+            {/* Botones de navegación más pegados y proporcionados */}
+            <nav className="flex gap-1.5 md:gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="bg-[#8b0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 rounded-lg hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[110px] md:w-[160px]"
+                  className="bg-[#8b0000] text-white font-bold text-[10px] sm:text-xs md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[80px] sm:w-[95px] md:w-[120px]"
                 >
                   {link.label}
                 </Link>
@@ -129,7 +133,7 @@ export default function QuienesSomos() {
             <div className="w-full md:w-8/12 flex flex-col gap-3 lg:gap-4 shrink-0">
               <div className="bg-[#cc0000] px-4 lg:px-6 py-1.5 lg:py-2 rounded-md w-max shadow-md shrink-0">
                 <h2 className="text-white font-bold text-[10px] md:text-xs lg:text-sm tracking-widest uppercase">
-                  Quienes somos
+                  Conócenos
                 </h2>
               </div>
 
