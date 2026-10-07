@@ -53,9 +53,9 @@ const navLinks = [
 
 const servicios = [
   "Eventos culturales",
-  "Management musical",
-  "Booking musical",
-  "Producción y postproducción discográfica",
+  "Management",
+  "Booking",
+  "Producción discográfica",
   "Actividades de formación artística",
   "Comunicación",
 ];

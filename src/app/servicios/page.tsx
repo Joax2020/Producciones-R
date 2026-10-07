@@ -181,13 +181,16 @@ export default function Servicios() {
         <header className="w-full pt-6 md:pt-10 pb-4 shrink-0 pointer-events-auto flex z-30 relative">
           
           {/* LOGO FLOTANTE A LA IZQUIERDA (No empuja ni altera los botones) */}
-          <Link href="/" className="absolute left-0 md:left-0 lg:-left-8 top-4 md:top-6 w-[120px] md:w-[180px] lg:w-[220px] transition-transform hover:scale-105 z-40">
-            <img
-              src="/images/logo20centro.png" 
-              alt="Producciones R 20 Años"
-              className="w-full h-auto object-contain drop-shadow-md"
-            />
-          </Link>
+          <Link
+  href="/"
+  className="absolute left-0 lg:-left-8 top-[42px] md:top-[64px] -translate-y-1/2 w-[150px] md:w-[240px] lg:w-[300px] transition-transform hover:scale-105 z-40"
+>
+  <img
+    src="/images/logo20centro.png"
+    alt="Producciones R 20 Años"
+    className="w-full h-auto object-contain drop-shadow-md"
+  />
+</Link>
 
           {/* TU NAVEGACIÓN INTACTA */}
           <nav className="w-full flex justify-end gap-4 md:gap-6 mb-4">
@@ -214,7 +217,7 @@ export default function Servicios() {
               <div className="hidden md:flex flex-col justify-center gap-8 lg:gap-12 w-[180px] lg:w-[220px] relative">
                 
                 {/* TÍTULO CENTRADO EXACTAMENTE SOBRE ESTA COLUMNA */}
-              <div className="absolute bottom-[100%] mb-12 lg:mb-20 left-1/2 -translate-x-1/2 bg-[#cc0000] px-4 lg:px-6 py-1.5 lg:py-2 rounded-md w-max shadow-md">
+              <div className="absolute bottom-[100%] mb-9 lg:mb-16 left-1/2 -translate-x-1/2 bg-[#cc0000] px-4 lg:px-6 py-1.5 lg:py-2 rounded-md w-max shadow-md">
                   <h1 className="text-white font-bold text-[10px] md:text-xs lg:text-sm tracking-widest uppercase">
                     Servicios
                   </h1>
