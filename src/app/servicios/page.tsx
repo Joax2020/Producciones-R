@@ -36,9 +36,8 @@ const redes = [
     name: "YouTube",
     url: "https://www.youtube.com/@ProduccionRBolivia",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7" aria-label="YouTube" style={{ color: "#fff", fill: "#fff" }}>
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
       </svg>
     ),
   },
@@ -79,7 +78,7 @@ const servicios: Servicio[] = [
   {
     id: "management-musical",
     label: "Management",
-    titulo: "Management musical",
+    titulo: "Management",
     descripcion: [
       "- Gestión estratégica de carreras y proyectos musicales. Desarrollo a corto y largo plazo. Administración de contratos, acuerdos, finanzas, equipos de trabajo, red de contactos, imagen, marca, difusión…",
       "- Hemos tenido la alegría de trabajar con: Jaime Junaro, Atajo, la Chiva, Entre 2 Aguas, TallerTaká, Suyana, Santamandinga, Mandíbula, Gabo Guzmán…"
@@ -89,7 +88,7 @@ const servicios: Servicio[] = [
   {
     id: "booking-musical",
     label: "Booking",
-    titulo: "Booking musical",
+    titulo: "Booking",
     descripcion: [
       "- Somos miembros de la Asociación Latinoamericana de Managers y hemos construido una red internacional de productores y programadores que nos ha permitido estar en distintos mercados de la música en Sudamérica, gestando diversas conexiones que han dado lugar a presentaciones y giras de artistas bolivianos.",
       "- Gestamos giras y viajes de artistas bolivianos al exterior del país: Atajo a Brasil (2008) – Entre 2 Aguas y Negro y Blanco a Perú (2011) – Norte Potosí a Perú (2014) - La Chiva a Brasil (2015) – Entre 2 Aguas a Ecuador (2015) - Suyana a Chile (2015) – Rantés a Chile (2016) – Armadura y Ciudad Líquida a Chile (2017) – Vadik Barrón a Uruguay (2018) – Gustavo Orihuela a Chile (2018) – Carlos Fischer a Chile (2019)"
@@ -99,7 +98,7 @@ const servicios: Servicio[] = [
   {
     id: "produccion-postproduccion",
     label: "Producción discográfica",
-    titulo: "Producción y post-producción discográfica",
+    titulo: "Producción discográfica",
     descripcion: [
       "- Coordinación de equipos de trabajo: músicos, productores, ingenieros, diseñadores. Gestión de estudios de grabación, imprentas, plataformas musicales…"
     ],
@@ -108,7 +107,7 @@ const servicios: Servicio[] = [
   {
     id: "formacion-artistica",
     label: "Formación artística",
-    titulo: "Actividades de formación artística",
+    titulo: "Formación artística",
     descripcion: [
       "- Organización de cursos, charlas, talleres y otros espacios de formación artística.",
       "- Gestión de espacios, insumos y equipamiento. Logística técnica, difusión y supervisión de ejecución…"
@@ -173,7 +172,7 @@ export default function Servicios() {
       </div>
 
       {/* ── CONTENIDO SUPERIOR ── */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
+      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
         
         {/* ── HEADER ── */}
         {/* ── HEADER (Solo navegación) ── */}
@@ -309,10 +308,19 @@ export default function Servicios() {
         )}
 
       </div>
-
+        {/* Fondo clicable para volver (solo en Vista 2) */}
+{servicioSeleccionado && (
+  <div
+    className="absolute inset-0 z-[15] cursor-pointer"
+    onClick={() => setServicioActivo(null)}
+    aria-label="Volver a Servicios"
+  />
+)}
       {/* ── PANEL NEGRO INFERIOR (Solo en Vista 2) ── */}
       {servicioSeleccionado && (
-        <div className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
+        <div 
+        onClick={(e) => e.stopPropagation()}
+        className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
           <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
             
             {/* Scroll de texto */}
@@ -325,8 +333,7 @@ export default function Servicios() {
             {/* Footer interno */}
             <div className="shrink-0 py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4 md:gap-8 text-[#cc0000] font-black text-xs md:text-sm uppercase tracking-widest">
-                <span>Contactos</span>
-                <span>Facebook</span>
+                
               </div>
               <div className="flex gap-4">
                 {redes.map((red) => (

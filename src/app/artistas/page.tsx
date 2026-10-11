@@ -24,7 +24,7 @@ const artistasData = [
       fb: "https://www.facebook.com/gaboguzmanguitarreante/", 
       ig: null, 
       yt: "https://www.youtube.com/@gaboguzmanguitarreante",
-      sp: "https://open.spotify.com/intl-es/artist/41ZOFR3Vf9SBKsjjmKhlQl?si=rZDY2K4lRe-3nqM7Z0knaw"
+      sp: "https://open.spotify.com/intl-es/artist/0HiWSTZpsV3bJGudWjDk4c?si=anG3T0qPSgq2hw3gMtBuiA"
     },
     tickets: null,
     video: "https://youtu.be/Q5Z6sCuHmig" 
@@ -148,7 +148,7 @@ export default function Artistas() {
               <div className="flex gap-4 text-white">
                 {selectedArtist.redes.fb && <a href={selectedArtist.redes.fb} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>}
                 {selectedArtist.redes.ig && <a href={selectedArtist.redes.ig} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 md:w-6 md:h-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>}
-                {selectedArtist.redes.yt && <a href={selectedArtist.redes.yt} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" /></svg></a>}
+                {selectedArtist.redes.yt && <a href={selectedArtist.redes.yt} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg></a>}
                 {selectedArtist.redes.sp && <a href={selectedArtist.redes.sp} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.659.301 1.02zM19.38 14.1c-.3.42-.84.54-1.26.24-3.36-2.04-8.52-2.64-12.54-1.44-.48.12-1.02-.18-1.14-.66-.12-.48.18-1.02.66-1.14 4.56-1.32 10.26-.66 14.04 1.62.48.3.6.84.24 1.38zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.12-1.38-.72-.18-.6.12-1.2.72-1.38 4.2-1.26 11.28-1.02 16.2 1.92.54.3 0.72.96.42 1.5-.24.6-.96.78-1.5.42z"/></svg></a>}
               </div>
             </div>

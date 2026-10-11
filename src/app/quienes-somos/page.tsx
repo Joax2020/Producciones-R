@@ -35,9 +35,8 @@ const redes = [
     name: "YouTube",
     url: "https://www.youtube.com/@ProduccionRBolivia",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7" aria-label="YouTube" style={{ color: "#fff", fill: "#fff" }}>
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
       </svg>
     ),
   },
@@ -56,8 +55,9 @@ const servicios = [
   "Management",
   "Booking",
   "Producción discográfica",
-  "Actividades de formación artística",
+  "Formación artística",
   "Comunicación",
+  "Sello de música digital"
 ];
 
 // Tamaños de los logos reducidos al máximo
@@ -158,20 +158,24 @@ export default function QuienesSomos() {
           </div>
 
           {/* ── GRILLA DE SERVICIOS ── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
-            {servicios.map((servicio, index) => (
-              <div key={index} className="flex items-center gap-4 w-full max-w-[260px] mx-auto">
-                <img
-                  src="/images/estrella.png"
-                  alt="★"
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
-                />
-                <span className="text-white font-bold text-xs md:text-sm leading-tight text-balance drop-shadow-md">
-                  {servicio}
-                </span>
-              </div>
-            ))}
-          </div>
+          {/* ── GRILLA DE SERVICIOS ── */}
+<div className="flex flex-wrap justify-center w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
+  {servicios.map((servicio, index) => (
+    <div
+      key={index}
+      className="flex items-center gap-3 w-full md:w-[calc(25%-1rem)] max-w-[260px]"
+    >
+      <img
+        src="/images/estrella.png"
+        alt="★"
+        className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
+      />
+      <span className="text-white text-xs md:text-sm leading-tight text-balance drop-shadow-md">
+        {servicio}
+      </span>
+    </div>
+  ))}
+</div>
 
         </div>
       </div>

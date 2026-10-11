@@ -75,9 +75,9 @@ const redes = [
     name: "YouTube",
     url: "#",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" className="w-5 h-5" aria-label="YouTube">
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FF0000" />
+        <path d="M9.75 8.98v6.04l5.75-3.02-5.75-3.02z" fill="white" />
       </svg>
     ),
   },
@@ -348,7 +348,7 @@ export default function Home() {
     { name: "Facebook", url: "https://www.facebook.com/produccionesrbolivia", icon: <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> },
     { name: "Instagram", url: "https://www.instagram.com/produccionesrbolivia", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
     { name: "TikTok", url: "https://www.tiktok.com/@producciones.r", icon: <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z"/></svg> },
-    { name: "YouTube", url: "https://www.youtube.com/@ProduccionRBolivia", icon: <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg> },
+    { name: "YouTube", url: "https://www.youtube.com/@ProduccionRBolivia", icon: <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg> },
   ].map((red) => (
     <a
       key={red.name}
@@ -452,9 +452,8 @@ const redes = [
     name: "YouTube",
     url: "https://www.youtube.com/@ProduccionRBolivia",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7" aria-label="YouTube">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
       </svg>
     ),
   },
@@ -470,11 +469,12 @@ const navLinks = [
 
 const servicios = [
   "Eventos culturales",
-  "Management musical",
-  "Booking musical",
-  "Producción y postproducción discográfica",
-  "Actividades de formación artística",
+  "Management",
+  "Booking",
+  "Producción discográfica",
+  "Formación artística",
   "Comunicación",
+  "Sello de música digital"
 ];
 
 // Tamaños de los logos reducidos al máximo
@@ -575,20 +575,24 @@ export default function QuienesSomos() {
           </div>
 
           {/* ── GRILLA DE SERVICIOS ── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
-            {servicios.map((servicio, index) => (
-              <div key={index} className="flex items-center gap-4 w-full max-w-[260px] mx-auto">
-                <img
-                  src="/images/estrella.png"
-                  alt="★"
-                  className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
-                />
-                <span className="text-white font-bold text-xs md:text-sm leading-tight text-balance drop-shadow-md">
-                  {servicio}
-                </span>
-              </div>
-            ))}
-          </div>
+          {/* ── GRILLA DE SERVICIOS ── */}
+<div className="flex flex-wrap justify-center w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
+  {servicios.map((servicio, index) => (
+    <div
+      key={index}
+      className="flex items-center gap-3 w-full md:w-[calc(25%-1rem)] max-w-[260px]"
+    >
+      <img
+        src="/images/estrella.png"
+        alt="★"
+        className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
+      />
+      <span className="text-white text-xs md:text-sm leading-tight text-balance drop-shadow-md">
+        {servicio}
+      </span>
+    </div>
+  ))}
+</div>
 
         </div>
       </div>
@@ -653,9 +657,8 @@ const redes = [
     name: "YouTube",
     url: "https://www.youtube.com/@ProduccionRBolivia",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7" aria-label="YouTube">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
       </svg>
     ),
   },
@@ -696,7 +699,7 @@ const servicios: Servicio[] = [
   {
     id: "management-musical",
     label: "Management",
-    titulo: "Management musical",
+    titulo: "Management",
     descripcion: [
       "- Gestión estratégica de carreras y proyectos musicales. Desarrollo a corto y largo plazo. Administración de contratos, acuerdos, finanzas, equipos de trabajo, red de contactos, imagen, marca, difusión…",
       "- Hemos tenido la alegría de trabajar con: Jaime Junaro, Atajo, la Chiva, Entre 2 Aguas, TallerTaká, Suyana, Santamandinga, Mandíbula, Gabo Guzmán…"
@@ -706,7 +709,7 @@ const servicios: Servicio[] = [
   {
     id: "booking-musical",
     label: "Booking",
-    titulo: "Booking musical",
+    titulo: "Booking",
     descripcion: [
       "- Somos miembros de la Asociación Latinoamericana de Managers y hemos construido una red internacional de productores y programadores que nos ha permitido estar en distintos mercados de la música en Sudamérica, gestando diversas conexiones que han dado lugar a presentaciones y giras de artistas bolivianos.",
       "- Gestamos giras y viajes de artistas bolivianos al exterior del país: Atajo a Brasil (2008) – Entre 2 Aguas y Negro y Blanco a Perú (2011) – Norte Potosí a Perú (2014) - La Chiva a Brasil (2015) – Entre 2 Aguas a Ecuador (2015) - Suyana a Chile (2015) – Rantés a Chile (2016) – Armadura y Ciudad Líquida a Chile (2017) – Vadik Barrón a Uruguay (2018) – Gustavo Orihuela a Chile (2018) – Carlos Fischer a Chile (2019)"
@@ -716,7 +719,7 @@ const servicios: Servicio[] = [
   {
     id: "produccion-postproduccion",
     label: "Producción discográfica",
-    titulo: "Producción y post-producción discográfica",
+    titulo: "Producción discográfica",
     descripcion: [
       "- Coordinación de equipos de trabajo: músicos, productores, ingenieros, diseñadores. Gestión de estudios de grabación, imprentas, plataformas musicales…"
     ],
@@ -725,7 +728,7 @@ const servicios: Servicio[] = [
   {
     id: "formacion-artistica",
     label: "Formación artística",
-    titulo: "Actividades de formación artística",
+    titulo: "Formación artística",
     descripcion: [
       "- Organización de cursos, charlas, talleres y otros espacios de formación artística.",
       "- Gestión de espacios, insumos y equipamiento. Logística técnica, difusión y supervisión de ejecución…"
@@ -790,7 +793,7 @@ export default function Servicios() {
       </div>
 
       {/* ── CONTENIDO SUPERIOR ── */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
+      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
         
         {/* ── HEADER ── */}
         {/* ── HEADER (Solo navegación) ── */}
@@ -926,10 +929,19 @@ export default function Servicios() {
         )}
 
       </div>
-
+        {/* Fondo clicable para volver (solo en Vista 2) */}
+{servicioSeleccionado && (
+  <div
+    className="absolute inset-0 z-[15] cursor-pointer"
+    onClick={() => setServicioActivo(null)}
+    aria-label="Volver a Servicios"
+  />
+)}
       {/* ── PANEL NEGRO INFERIOR (Solo en Vista 2) ── */}
       {servicioSeleccionado && (
-        <div className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
+        <div 
+        onClick={(e) => e.stopPropagation()}
+        className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
           <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
             
             {/* Scroll de texto */}
@@ -942,8 +954,7 @@ export default function Servicios() {
             {/* Footer interno */}
             <div className="shrink-0 py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4 md:gap-8 text-[#cc0000] font-black text-xs md:text-sm uppercase tracking-widest">
-                <span>Contactos</span>
-                <span>Facebook</span>
+                
               </div>
               <div className="flex gap-4">
                 {redes.map((red) => (
@@ -973,45 +984,151 @@ export default function Servicios() {
 "use client";
 import Link from "next/link";
 
-export default function Construccion() {
+// ── 1. "BASE DE DATOS" TEMPORAL DE EVENTOS ──
+// Para añadir un evento, solo copia un bloque {...} de estos y cambia los datos.
+// Si no hay venta de entradas, déjalo como: entradas: null
+const eventosData = [
+  {
+    id: "1",
+    fecha: "Octubre 16",
+    artista: "Wara Bolivia",
+    gira: "53 AÑOS DE LUZ – Nuevo Disco",
+    ciudad: "La Paz",
+    lugar: "Teatro Municipal 6 de Agosto",
+    hora: "19:30 H",
+    redes: { 
+      fb: "https://www.facebook.com/share/1HUu76FoST/", 
+      wa: "https://wa.me/59164122244" 
+    },
+    entradas: "https://superticket.bo/Wara-Bolivia---En-Concierto/"
+  },
+  {
+    id: "2",
+    fecha: "Octubre 17",
+    artista: "Presentación de Libro",
+    gira: "QUEDA LA MÚSICA",
+    ciudad: "Cochabamba",
+    lugar: "19° Feria Internacional del Libro Salón Néstor Taboada",
+    hora: "19:00 H",
+    redes: { 
+      fb: "https://www.facebook.com/share/1LA2GjWLRT/", // Pendiente
+      wa: "https://wa.me/59164122244" 
+    },
+    entradas: null // Al ser null, el botón extra no aparecerá
+  }
+];
+
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/quienes-somos", label: "Conócenos" },
+  { href: "/servicios", label: "Qué hacemos" },
+  { href: "/artistas", label: "Artistas" },
+  { href: "/contactos", label: "Contáctanos" },
+];
+
+export default function Agenda() {
   return (
-    <div className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative">
+    <div className="min-h-screen w-full flex flex-col bg-white overflow-x-hidden">
       
-      {/* ── FONDO DESENFOCADO ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/carrusel1.jpg')`, // Puedes usar cualquier imagen de tu carrusel
-            filter: "brightness(0.4) blur(6px)", // Oscuro y desenfocado para dar protagonismo al texto
-          }}
-        />
+      {/* ── HEADER NEGRO (Compacto, logos esquinados y botones grandes) ── */}
+      <div className="w-full bg-black shrink-0 relative z-20 py-5 md:py-6 px-4 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-md">
+        
+        {/* Lado Izquierdo: Redes + Botones */}
+        <div className="flex flex-col gap-4 md:gap-6 w-full md:w-auto items-center md:items-start">
+          
+          {/* Redes Sociales esquinadas */}
+          <div className="flex gap-4 text-white px-2">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5 hover:text-red-500 cursor-pointer transition-colors"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 md:w-5 md:h-5 hover:text-red-500 cursor-pointer transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5 hover:text-red-500 cursor-pointer transition-colors"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.79 1.53V6.77a4.85 4.85 0 0 1-1.02-.08z" /></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5 hover:text-red-500 cursor-pointer transition-colors" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
+          </div>
+
+          {/* Navegación a la izquierda (Botones completos) */}
+          <nav className="flex gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center md:justify-start">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="bg-[#cc0000] text-white font-bold text-xs sm:text-sm md:text-base py-2.5 md:py-3 px-2 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[100px] sm:w-[120px] md:w-[130px] lg:w-[160px]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Logo a la derecha */}
+        <Link href="/" className="w-[180px] md:w-[220px] lg:w-[260px] shrink-0 transition-transform hover:scale-105">
+          <img
+            src="/images/logo.png" 
+            alt="Producciones R 20 Años"
+            className="w-full h-auto object-contain"
+          />
+        </Link>
       </div>
 
-      {/* ── CONTENIDO CENTRAL ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+      {/* ── CUERPO DE LA AGENDA (Fondo Blanco) ── */}
+      <div className="flex-1 w-full max-w-[1200px] mx-auto px-6 md:px-16 py-12 md:py-20 z-10">
         
-        <img
-          src="/images/estrella.png"
-          alt="★"
-          className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl mb-6 animate-pulse"
-        />
-        
-        <h1 className="text-white font-black text-3xl md:text-5xl lg:text-6xl tracking-widest uppercase drop-shadow-lg mb-4">
-          Próximamente
-        </h1>
-        
-        <p className="text-white/80 md:text-lg lg:text-xl max-w-lg mb-10 font-medium">
-          Estamos trabajando en esta sección para traerte el mejor contenido. ¡Vuelve pronto!
-        </p>
-        
-        <Link
-          href="/"
-          className="bg-[#cc0000] text-white font-bold text-xs md:text-sm py-3 px-8 rounded-lg hover:bg-red-700 transition-colors shadow-2xl tracking-widest uppercase hover:scale-105 transform"
-        >
-          Volver al Inicio
-        </Link>
-        
+        {/* Grilla de Tarjetas (Solo renderiza los eventos que existen) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {eventosData.map((evento) => (
+            <div key={evento.id} className="w-full flex justify-center">
+              
+              {/* Tarjeta de Evento Real */}
+              <div className="w-full max-w-[320px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.15)] flex flex-col font-sans transition-transform hover:-translate-y-2 duration-300">
+                
+                {/* Sección Superior (Fecha y Artista) */}
+                <div className="bg-[#a37b7b] text-white p-5 flex-1 flex flex-col justify-start">
+                  <p className="text-sm tracking-wide font-medium">{evento.fecha}</p>
+                  <h3 className="text-xl md:text-2xl font-black mt-1 uppercase leading-tight drop-shadow-sm">
+                    {evento.artista}
+                  </h3>
+                </div>
+
+                {/* Franja Central (Nombre Gira) */}
+                <div className="bg-[#c59c9c] text-[#8b0000] text-center py-2.5 shadow-inner px-2">
+                  <p className="font-black text-sm md:text-base tracking-[0.2em] uppercase">
+                    {evento.gira}
+                  </p>
+                </div>
+
+                {/* Sección Inferior (Lugar, Ciudad, Hora) */}
+                <div className="bg-[#a37b7b] text-white p-5 flex-1 flex flex-col justify-end relative min-h-[140px]">
+                  <div className="text-right flex flex-col gap-0.5 mb-8">
+                    <p className="text-sm font-medium tracking-wide">{evento.ciudad}</p>
+                    <p className="text-base font-bold tracking-wide">{evento.lugar}</p>
+                    <p className="text-sm font-medium tracking-wide">{evento.hora}</p>
+                  </div>
+
+                  {/* Redes sociales y Entradas en la esquina inferior izquierda */}
+                  <div className="absolute bottom-5 left-5 flex items-center gap-3">
+                    
+                    {/* FB Icon */}
+                    <a href={evento.redes.fb} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full border border-white/60 flex items-center justify-center text-white/80 hover:text-white hover:border-white transition-colors cursor-pointer">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+                    </a>
+                    
+                    {/* WA Icon */}
+                    <a href={evento.redes.wa} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full border border-white/60 flex items-center justify-center text-white/80 hover:text-white hover:border-white transition-colors cursor-pointer">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    </a>
+
+                    {/* Botón de Entradas Extra (Solo se muestra si hay URL) */}
+                    {evento.entradas && (
+                      <a href={evento.entradas} target="_blank" rel="noopener noreferrer" className="ml-1 bg-white/20 hover:bg-white/40 border border-white/60 text-white rounded-full px-3 py-1.5 text-[9px] font-bold tracking-[0.15em] uppercase transition-colors">
+                        Entradas
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );
@@ -1070,47 +1187,232 @@ export default function Construccion() {
 
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function Construccion() {
+// ── 1. "BASE DE DATOS" TEMPORAL DE ARTISTAS ──
+const artistasData = [
+  {
+    id: "1",
+    nombre: "Gabo Guzmán",
+    imagen: "/images/artistas/gaboguzman.jpg", 
+    imagen2: "/images/artistas/gaboguzman2.jpg", // Foto exclusiva para los detalles
+    fechaLugar: "GABO GUZMÁN", 
+    descripcion: [
+      "Gabo Guzmán es guitarra boliviana, es guitarra chuquisaqueña, es guitarra de otros lados, es guitarra así nomás.",
+      "«Se mete con casi todo: cueca, bailecito, música de compositor, canciones, instrumentales, rock. Y no es una melange, es una selección acomodada para que el espectador no sufra de monotonía auditiva. Para que la sorpresa lo encuentre, aun escuchándolo… varias veces.»",
+      "Músico boliviano. Estudió en el Conservatorio Nacional de Música de La Paz, donde fue docente por 7 años. Es graduado de la cátedra de Guitarra en la Escuela Nacional de Música de La Habana, Cuba.",
+      "Ha participado y grabado distintos materiales discográficos con las agrupaciones TallerTaká (3 discos) y Sobrevigencia (2 discos). Tiene tres producciones como solista: Destrenzas (2011), Lalay (2020) y Revolví (2024).",
+      "Como guitarrista acompañó a cantantes bolivianas reconocidas como Luzmila Carpio y Jenny Cárdenas. Ha escrito música para Teatro.",
+      "Ha compartido escenario con importantes músicos bolivianos como: Luzmila Carpio, Manuel Monroy, Luis Rico, Álvaro Montenegro, Luis Gutiérrez, Emma Junaro, Julio Godoy (Los Jairas), Juan Carlos Cordero, Raúl Chacón (Bolivia Manta/Rupay), Omar Baldiviezo, César Junaro, Oscar García, David Portillo, Grillo Villegas, Omar Gonzales, Panchi Maldonado, Vadik, Entre 2 Aguas, Mellizos Gonzales, Tincho Castillo y Quimbando.",
+      "Ha tocado en escenarios de varias ciudades de Bolivia y ha visitado con su música: Argentina, Francia, Suiza, España, Polonia, Eslovenia, Bélgica y Cuba.",
+      "Cree en una cierta bastardía luminosa que ha de salvar alguno de los sueños humanos gracias a la música."
+    ],
+    redes: { 
+      fb: "https://www.facebook.com/gaboguzmanguitarreante/", 
+      ig: null, 
+      yt: "https://www.youtube.com/@gaboguzmanguitarreante",
+      sp: "https://open.spotify.com/intl-es/artist/0HiWSTZpsV3bJGudWjDk4c?si=anG3T0qPSgq2hw3gMtBuiA"
+    },
+    tickets: null,
+    video: "https://youtu.be/Q5Z6sCuHmig" 
+  },
+  {
+    id: "2",
+    nombre: "Wara Bolivia",
+    imagen: "/images/artistas/encuentro.jpg", 
+    imagen2: null, // Al no tener imagen2, el código usará automáticamente la imagen 1
+    fechaLugar: "WARA BOLIVIA - 53 AÑOS DE LUZ",
+    descripcion: [
+      "Wara es una de las agrupaciones más icónicas y fundamentales de la música boliviana.",
+      "Con más de 50 años de trayectoria, han sabido fusionar el rock con la música folclórica, creando un sonido único que ha trascendido generaciones."
+    ],
+    redes: { fb: "#", ig: "#", yt: "#", sp: null },
+    tickets: null,
+    video: null
+  },
+];
+
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/quienes-somos", label: "Conócenos" },
+  { href: "/servicios", label: "Qué hacemos" },
+  { href: "/agenda", label: "Agenda" },
+  { href: "/contactos", label: "Contáctanos" },
+];
+
+export default function Artistas() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedArtist, setSelectedArtist] = useState<typeof artistasData[0] | null>(null);
+
+  const artistaActual = artistasData[currentIndex];
+
+  const nextArtist = () => {
+    setCurrentIndex((prev) => (prev === artistasData.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevArtist = () => {
+    setCurrentIndex((prev) => (prev === 0 ? artistasData.length - 1 : prev - 1));
+  };
+
+  const handleCloseArtist = () => {
+    setSelectedArtist(null);
+  };
+
   return (
-    <div className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative">
+    <div className="h-screen w-full flex flex-col bg-black overflow-hidden font-sans relative">
       
-      {/* ── FONDO DESENFOCADO ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/carrusel1.jpg')`, // Puedes usar cualquier imagen de tu carrusel
-            filter: "brightness(0.4) blur(6px)", // Oscuro y desenfocado para dar protagonismo al texto
-          }}
-        />
-      </div>
+      {/* ── HEADER NEGRO (Solo en carrusel) ── */}
+      {!selectedArtist && (
+        <div className="w-full bg-black shrink-0 relative z-30 py-5 md:py-6 px-4 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-md border-b border-white/10">
+          <Link href="/" className="w-[120px] md:w-[180px] lg:w-[220px] shrink-0 transition-transform hover:scale-105">
+            <img src="/images/logo.png" alt="Producciones R 20 Años" className="w-full h-auto object-contain" />
+          </Link>
+          <nav className="flex justify-end gap-2 sm:gap-3 md:gap-4 flex-wrap">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="bg-[#cc0000] text-white font-bold text-[10px] sm:text-xs md:text-sm py-2.5 md:py-3 px-2 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[90px] sm:w-[110px] md:w-[130px] lg:w-[150px]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
 
-      {/* ── CONTENIDO CENTRAL ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+      {/* ── CONDICIONAL: CARRUSEL O DETALLE ── */}
+      {!selectedArtist ? (
         
-        <img
-          src="/images/estrella.png"
-          alt="★"
-          className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-2xl mb-6 animate-pulse"
-        />
-        
-        <h1 className="text-white font-black text-3xl md:text-5xl lg:text-6xl tracking-widest uppercase drop-shadow-lg mb-4">
-          Próximamente
-        </h1>
-        
-        <p className="text-white/80 md:text-lg lg:text-xl max-w-lg mb-10 font-medium">
-          Estamos trabajando en esta sección para traerte el mejor contenido. ¡Vuelve pronto!
-        </p>
-        
-        <Link
-          href="/"
-          className="bg-[#cc0000] text-white font-bold text-xs md:text-sm py-3 px-8 rounded-lg hover:bg-red-700 transition-colors shadow-2xl tracking-widest uppercase hover:scale-105 transform"
-        >
-          Volver al Inicio
-        </Link>
-        
-      </div>
+        /* ── VISTA 1: CARRUSEL DE ARTISTAS ── */
+        <div className="flex-1 relative w-full flex flex-col items-center justify-center">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-40 transition-all duration-700"
+            style={{ backgroundImage: `url('/images/escenario.png')` }} 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90" />
+
+          <div className="relative z-10 flex items-center justify-center w-full px-4">
+            <button onClick={prevArtist} className="text-white hover:text-red-500 transition-colors p-4 md:p-8">
+              <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="w-12 h-12 md:w-16 md:h-16"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            </button>
+
+            <div className="flex flex-col items-center gap-6 cursor-pointer group" onClick={() => setSelectedArtist(artistaActual)}>
+              <div 
+                className="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(204,0,0,0.3)] w-[260px] h-[260px] md:w-[350px] md:h-[250px] lg:w-[450px] lg:h-[300px] transition-transform duration-500 group-hover:scale-105 bg-cover bg-center"
+                style={{ backgroundImage: `url('${artistaActual.imagen}')` }}
+              >
+                {!artistaActual.imagen && <div className="w-full h-full bg-gray-900 flex items-center justify-center text-gray-500">Imagen no disp.</div>}
+              </div>
+              <h2 className="text-white font-bold text-sm md:text-lg tracking-[0.2em] uppercase drop-shadow-md text-center group-hover:text-red-400 transition-colors">
+                {artistaActual.fechaLugar}
+              </h2>
+            </div>
+
+            <button onClick={nextArtist} className="text-white hover:text-red-500 transition-colors p-4 md:p-8">
+              <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="w-12 h-12 md:w-16 md:h-16"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+            </button>
+          </div>
+        </div>
+
+      ) : (
+
+        /* ── VISTA 2: DETALLE DEL ARTISTA ── */
+        <div className="flex-1 w-full h-full flex flex-col md:flex-row animate-in fade-in duration-500 overflow-hidden">
+          
+          {/* PANEL IZQUIERDO */}
+          <div className="w-full md:w-1/2 bg-[#a37b7b] h-[50vh] md:h-full flex flex-col relative p-6 md:p-10 lg:p-14">
+            
+            <div className="flex justify-between items-start mb-6 shrink-0">
+              <button 
+                onClick={handleCloseArtist} 
+                className="text-white hover:text-black transition-colors"
+                title="Volver"
+              >
+                <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="w-8 h-8 md:w-10 md:h-10"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+              </button>
+
+              <div className="flex gap-4 text-white">
+                {selectedArtist.redes.fb && <a href={selectedArtist.redes.fb} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>}
+                {selectedArtist.redes.ig && <a href={selectedArtist.redes.ig} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 md:w-6 md:h-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg></a>}
+                {selectedArtist.redes.yt && <a href={selectedArtist.redes.yt} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6" aria-label="YouTube"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg></a>}
+                {selectedArtist.redes.sp && <a href={selectedArtist.redes.sp} target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.54.659.301 1.02zM19.38 14.1c-.3.42-.84.54-1.26.24-3.36-2.04-8.52-2.64-12.54-1.44-.48.12-1.02-.18-1.14-.66-.12-.48.18-1.02.66-1.14 4.56-1.32 10.26-.66 14.04 1.62.48.3.6.84.24 1.38zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.3c-.6.18-1.2-.12-1.38-.72-.18-.6.12-1.2.72-1.38 4.2-1.26 11.28-1.02 16.2 1.92.54.3 0.72.96.42 1.5-.24.6-.96.78-1.5.42z"/></svg></a>}
+              </div>
+            </div>
+
+            {/* Scroll Interno: TEXTO + VIDEO AL FINAL */}
+            <div className="flex-1 overflow-y-auto text-white/90 text-[13px] md:text-[15px] leading-relaxed text-justify pr-4 pb-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-white/30 [&::-webkit-scrollbar-track]:bg-transparent">
+              
+              <div className="space-y-4">
+                {selectedArtist.descripcion.map((parrafo, i) => (
+                  <p key={i} className="italic">{parrafo}</p>
+                ))}
+              </div>
+
+              {selectedArtist.video && (
+                <div className="mt-8 w-full aspect-video bg-black rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-white/20">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={selectedArtist.video.includes("youtu.be") ? selectedArtist.video.replace("youtu.be/", "www.youtube.com/embed/") : selectedArtist.video}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+            </div>
+
+            {/* Footer Izquierdo */}
+            <div className="shrink-0 mt-6 flex items-end justify-between border-t border-white/20 pt-4">
+              <div className="flex flex-col text-white font-bold tracking-[0.1em] uppercase text-[10px] md:text-xs leading-tight drop-shadow-md">
+                {selectedArtist.fechaLugar.split(' - ').map((linea, index) => (
+                  <span key={index}>{linea}</span>
+                ))}
+              </div>
+              
+              {selectedArtist.tickets && (
+                <a 
+                  href={selectedArtist.tickets} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#8b0000] font-black tracking-widest uppercase text-xs md:text-sm hover:text-white transition-colors ml-4"
+                >
+                  TICKETS
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* PANEL DERECHO ESTÁTICO */}
+          <div className="w-full md:w-1/2 h-[50vh] md:h-full relative bg-black shrink-0">
+            {/* AQUÍ ESTÁ LA MAGIA: bg-top y el Fallback a la imagen original si imagen2 es null */}
+            <div 
+              className="absolute inset-0 bg-cover bg-top"
+              style={{ backgroundImage: `url('${selectedArtist.imagen2 || selectedArtist.imagen}')` }}
+            />
+            
+            {/* Reproductor Decorativo */}
+            <div className="absolute bottom-6 right-6 left-6 md:left-auto md:w-64 bg-black/50 backdrop-blur-md p-4 rounded-xl hidden md:flex items-center gap-4 border border-white/10">
+               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-black shrink-0">
+                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-0.5"><path d="M5 3l14 9-14 9V3z" /></svg>
+               </div>
+               <div className="flex-1">
+                 <div className="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                   <div className="h-full bg-[#cc0000] w-1/3"></div>
+                 </div>
+               </div>
+               <div className="flex gap-2 text-white shrink-0">
+                 <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" /></svg>
+                 <svg fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" /></svg>
+               </div>
+            </div>
+          </div>
+
+        </div>
+      )}
+
     </div>
   );
 }
