@@ -111,7 +111,7 @@ export default function QuienesSomos() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="bg-[#8b0000] text-white font-bold text-[10px] sm:text-xs md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[80px] sm:w-[95px] md:w-[120px]"
+                  className="bg-[#8b0000] text-white font-medium text-[10px] sm:text-xs md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[80px] sm:w-[95px] md:w-[120px]"
                 >
                   {link.label}
                 </Link>

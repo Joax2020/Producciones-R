@@ -148,7 +148,10 @@ export default function Servicios() {
 
   return (
     // Bloqueamos el scroll global
-    <div className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative">
+    <div
+  className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative"
+  onClick={() => { if (servicioSeleccionado) setServicioActivo(null); }}
+>
       {/* ── FONDOS ESTÁTICOS ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
@@ -172,7 +175,7 @@ export default function Servicios() {
       </div>
 
       {/* ── CONTENIDO SUPERIOR ── */}
-      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full pointer-events-none">
+      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
         
         {/* ── HEADER ── */}
         {/* ── HEADER (Solo navegación) ── */}
@@ -206,7 +209,7 @@ export default function Servicios() {
         </header>
 
         {/* ── ZONA DINÁMICA (Botones o Título Activo) ── */}
-        <div className="flex-1 relative w-full pointer-events-auto">
+        <div className="flex-1 relative w-full">
           
           {!servicioSeleccionado ? (
             /* ── VISTA 1: BOTONES A LOS LADOS ── */
@@ -308,14 +311,7 @@ export default function Servicios() {
         )}
 
       </div>
-        {/* Fondo clicable para volver (solo en Vista 2) */}
-{servicioSeleccionado && (
-  <div
-    className="absolute inset-0 z-[15] cursor-pointer"
-    onClick={() => setServicioActivo(null)}
-    aria-label="Volver a Servicios"
-  />
-)}
+ 
       {/* ── PANEL NEGRO INFERIOR (Solo en Vista 2) ── */}
       {servicioSeleccionado && (
         <div 

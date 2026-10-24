@@ -3,6 +3,14 @@ import Link from "next/link";
 import { useState } from "react";
 
 // ── 1. "BASE DE DATOS" TEMPORAL DE ARTISTAS ──
+type Artista = {
+  id: string; nombre: string; imagen: string; imagen2: string | null;
+  fechaLugar: string; descripcion: string[];
+  redes: { fb: string|null; ig: string|null; yt: string|null; sp: string|null };
+  tickets: string | null; video: string | null;
+  posicion?: string;   // enfoque en la tarjeta
+  posicion2?: string;  // enfoque en el panel derecho
+};
 const artistasData = [
   {
     id: "1",
@@ -31,10 +39,12 @@ const artistasData = [
   },
   {
     id: "2",
-    nombre: "Wara Bolivia",
+    nombre: "Encuentro - Guitarras Bolivianas",
     imagen: "/images/artistas/encuentro.jpg", 
     imagen2: null, // Al no tener imagen2, el código usará automáticamente la imagen 1
-    fechaLugar: "WARA BOLIVIA - 53 AÑOS DE LUZ",
+    fechaLugar: "Encuentro - Guitarras Bolivianas",
+    posicion: "center 30%",
+    posicion2: "center 20%",
     descripcion: [
       "Wara es una de las agrupaciones más icónicas y fundamentales de la música boliviana.",
       "Con más de 50 años de trayectoria, han sabido fusionar el rock con la música folclórica, creando un sonido único que ha trascendido generaciones."
@@ -73,37 +83,34 @@ export default function Artistas() {
 
   return (
     <div className="h-screen w-full flex flex-col bg-black overflow-hidden font-sans relative">
-      
-      {/* ── HEADER NEGRO (Solo en carrusel) ── */}
-      {!selectedArtist && (
-        <div className="w-full bg-black shrink-0 relative z-30 py-5 md:py-6 px-4 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6 shadow-md border-b border-white/10">
-          <Link href="/" className="w-[120px] md:w-[180px] lg:w-[220px] shrink-0 transition-transform hover:scale-105">
-            <img src="/images/logo.png" alt="Producciones R 20 Años" className="w-full h-auto object-contain" />
-          </Link>
-          <nav className="flex justify-end gap-2 sm:gap-3 md:gap-4 flex-wrap">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="bg-[#cc0000] text-white font-bold text-[10px] sm:text-xs md:text-sm py-2.5 md:py-3 px-2 rounded-lg hover:bg-red-700 transition-colors shadow-lg tracking-wide text-center w-[90px] sm:w-[110px] md:w-[130px] lg:w-[150px]"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none" style={{ backgroundImage: `url('/images/escenario.png')` }} />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90 pointer-events-none" />
 
+  {!selectedArtist && (
+ 
+  <header className="relative z-30 w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex items-start justify-between pt-6 md:pt-8 pb-4 shrink-0">
+   
+    <Link href="/" className="w-[120px] md:w-[180px] lg:w-[220px] shrink-0 transition-transform hover:scale-105">
+      <img src="/images/logo.png" alt="Producciones R 20 Años" className="w-full h-auto object-contain" />
+    </Link>
+    <nav className="flex gap-1.5 md:gap-3">
+      {navLinks.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="bg-[#8b0000] text-white font-medium text-[10px] sm:text-xs md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[80px] sm:w-[95px] md:w-[120px]"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </nav>
+  </header>
+    )}
       {/* ── CONDICIONAL: CARRUSEL O DETALLE ── */}
       {!selectedArtist ? (
         
         /* ── VISTA 1: CARRUSEL DE ARTISTAS ── */
         <div className="flex-1 relative w-full flex flex-col items-center justify-center">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-40 transition-all duration-700"
-            style={{ backgroundImage: `url('/images/escenario.png')` }} 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90" />
 
           <div className="relative z-10 flex items-center justify-center w-full px-4">
             <button onClick={prevArtist} className="text-white hover:text-red-500 transition-colors p-4 md:p-8">
@@ -111,12 +118,11 @@ export default function Artistas() {
             </button>
 
             <div className="flex flex-col items-center gap-6 cursor-pointer group" onClick={() => setSelectedArtist(artistaActual)}>
-              <div 
-                className="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(204,0,0,0.3)] w-[260px] h-[260px] md:w-[350px] md:h-[250px] lg:w-[450px] lg:h-[300px] transition-transform duration-500 group-hover:scale-105 bg-cover bg-center"
-                style={{ backgroundImage: `url('${artistaActual.imagen}')` }}
-              >
-                {!artistaActual.imagen && <div className="w-full h-full bg-gray-900 flex items-center justify-center text-gray-500">Imagen no disp.</div>}
-              </div>
+              <img
+  src={artistaActual.imagen}
+  alt={artistaActual.nombre}
+  className="max-w-[80vw] md:max-w-[560px] max-h-[45vh] w-auto h-auto rounded-3xl object-contain shadow-[0_0_40px_rgba(204,0,0,0.3)] transition-transform duration-500 group-hover:scale-105"
+/>
               <h2 className="text-white font-bold text-sm md:text-lg tracking-[0.2em] uppercase drop-shadow-md text-center group-hover:text-red-400 transition-colors">
                 {artistaActual.fechaLugar}
               </h2>
@@ -203,7 +209,7 @@ export default function Artistas() {
             {/* AQUÍ ESTÁ LA MAGIA: bg-top y el Fallback a la imagen original si imagen2 es null */}
             <div 
               className="absolute inset-0 bg-cover bg-top"
-              style={{ backgroundImage: `url('${selectedArtist.imagen2 || selectedArtist.imagen}')` }}
+              style={{ backgroundImage: `url('${selectedArtist.imagen2 || selectedArtist.imagen}')`, backgroundPosition: selectedArtist.posicion2 ?? "top" }}
             />
             
             {/* Reproductor Decorativo */}
