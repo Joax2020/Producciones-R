@@ -86,21 +86,22 @@ const servicios: Servicio[] = [
     lado: "izquierda",
   },
   {
+    id: "produccion-postproduccion",
+    label: "Producción discográfica",
+    titulo: "Producción discográfica",
+    descripcion: [
+      "- Coordinación de equipos de trabajo: músicos, productores, ingenieros, diseñadores. Gestión de estudios de grabación, imprentas, plataformas musicales…"
+    ],
+    lado: "izquierda",
+  },
+  
+  {
     id: "booking-musical",
     label: "Booking",
     titulo: "Booking",
     descripcion: [
       "- Somos miembros de la Asociación Latinoamericana de Managers y hemos construido una red internacional de productores y programadores que nos ha permitido estar en distintos mercados de la música en Sudamérica, gestando diversas conexiones que han dado lugar a presentaciones y giras de artistas bolivianos.",
       "- Gestamos giras y viajes de artistas bolivianos al exterior del país: Atajo a Brasil (2008) – Entre 2 Aguas y Negro y Blanco a Perú (2011) – Norte Potosí a Perú (2014) - La Chiva a Brasil (2015) – Entre 2 Aguas a Ecuador (2015) - Suyana a Chile (2015) – Rantés a Chile (2016) – Armadura y Ciudad Líquida a Chile (2017) – Vadik Barrón a Uruguay (2018) – Gustavo Orihuela a Chile (2018) – Carlos Fischer a Chile (2019)"
-    ],
-    lado: "izquierda",
-  },
-  {
-    id: "produccion-postproduccion",
-    label: "Producción discográfica",
-    titulo: "Producción discográfica",
-    descripcion: [
-      "- Coordinación de equipos de trabajo: músicos, productores, ingenieros, diseñadores. Gestión de estudios de grabación, imprentas, plataformas musicales…"
     ],
     lado: "derecha",
   },
