@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import MobileMenu from "@/components/MobileMenu";
+
 const redes = [
   {
     name: "Facebook",
@@ -150,8 +152,21 @@ export default function Servicios() {
   return (
     // Bloqueamos el scroll global
     <div
-  className="h-screen w-full bg-[#9e4a4a] overflow-hidden flex flex-col relative"
+  className="min-h-dvh w-full bg-[#9e4a4a] overflow-x-hidden overflow-y-auto flex flex-col relative md:min-h-screen"
   onClick={() => { if (servicioSeleccionado) setServicioActivo(null); }}
+  onTouchStart={(event) => {
+    if (!servicioSeleccionado) return;
+    const touch = event.touches[0];
+    (event.currentTarget as HTMLDivElement).dataset.startY = String(touch.clientY);
+  }}
+  onTouchEnd={(event) => {
+    if (!servicioSeleccionado) return;
+    const startY = Number((event.currentTarget as HTMLDivElement).dataset.startY ?? 0);
+    const deltaY = event.changedTouches[0].clientY - startY;
+    if (deltaY > 80) {
+      setServicioActivo(null);
+    }
+  }}
 >
       {/* ── FONDOS ESTÁTICOS ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -169,14 +184,13 @@ export default function Servicios() {
           <img
             src="/images/disco.png"
             alt="Disco Fondo"
-            // Añadimos animate-[spin_20s_linear_infinite] para un giro suave
-            className="w-[90vw] md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85] animate-[spin_20s_linear_infinite]"
+            className="w-[90vw] max-w-none md:w-[750px] lg:w-[900px] xl:w-[1000px] aspect-square object-contain drop-shadow-2xl opacity-[0.85] animate-[spin_20s_linear_infinite] motion-reduce:animate-none"
           />
         </div>
       </div>
 
       {/* ── CONTENIDO SUPERIOR ── */}
-      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
+      <div className="relative z-[16] w-full max-w-[1400px] mx-auto px-3 sm:px-6 md:px-16 lg:px-24 flex flex-col min-h-screen">
         
         {/* ── HEADER ── */}
         {/* ── HEADER (Solo navegación) ── */}
@@ -186,7 +200,7 @@ export default function Servicios() {
           {/* LOGO FLOTANTE A LA IZQUIERDA (No empuja ni altera los botones) */}
           <Link
   href="/"
-  className="absolute left-0 lg:-left-8 top-[42px] md:top-[64px] -translate-y-1/2 w-[150px] md:w-[240px] lg:w-[300px] transition-transform hover:scale-105 z-40"
+  className="absolute left-2 top-[38px] md:left-0 md:top-[64px] lg:-left-8 lg:top-[64px] -translate-y-1/2 w-[110px] sm:w-[150px] md:w-[240px] lg:w-[300px] transition-transform hover:scale-105 z-40"
 >
   <img
     src="/images/logo20centro.png"
@@ -196,17 +210,18 @@ export default function Servicios() {
 </Link>
 
           {/* TU NAVEGACIÓN INTACTA */}
-          <nav className="w-full flex justify-end gap-4 md:gap-6 mb-4">
+          <nav className="hidden md:flex w-full flex-wrap justify-center gap-2 sm:gap-3 md:justify-end md:gap-6 mb-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="bg-[#8b0000] text-white font-bold text-xs sm:text-sm md:text-base py-2 md:py-3 rounded-lg hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[110px] md:w-[160px]"
+                className="bg-[#8b0000] text-white font-bold text-[10px] sm:text-xs md:text-base py-2 md:py-3 rounded-lg hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[84px] sm:w-[100px] md:w-[160px]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+          <MobileMenu links={navLinks} variant="default" className="absolute right-4 top-5 md:hidden" />
         </header>
 
         {/* ── ZONA DINÁMICA (Botones o Título Activo) ── */}
@@ -251,7 +266,7 @@ export default function Servicios() {
               </div>
 
               {/* Botones en mobile (Añadimos el título aquí también) */}
-              <div className="flex md:hidden flex-col gap-4 w-full max-w-xs mx-auto mt-6 overflow-y-auto max-h-[60vh]">
+              <div className="flex md:hidden flex-col gap-4 w-full max-w-xs mx-auto mt-20 overflow-y-auto max-h-[60vh] pt-2 pb-4">
                 
                 <div className="bg-[#cc0000] px-4 py-1.5 rounded-md w-max shadow-md mx-auto mb-2">
                   <h1 className="text-white font-bold text-[10px] tracking-widest uppercase">
@@ -315,24 +330,42 @@ export default function Servicios() {
  
       {/* ── PANEL NEGRO INFERIOR (Solo en Vista 2) ── */}
       {servicioSeleccionado && (
-        <div 
-        onClick={(e) => e.stopPropagation()}
-        className="absolute bottom-0 left-0 w-full h-[50vh] md:h-[45vh] bg-[#111111]/95 z-20 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300">
-          <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col h-full">
-            
-            {/* Scroll de texto */}
-            <div className="flex-1 overflow-y-auto py-8 text-white/90 text-xs md:text-sm lg:text-[15px] leading-relaxed text-justify space-y-5 pr-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-red-700/50 [&::-webkit-scrollbar-track]:bg-transparent">
+        <div
+          onClick={(e) => e.stopPropagation()}
+          onTouchStart={(event) => {
+            const touch = event.touches[0];
+            (event.currentTarget as HTMLDivElement).dataset.startY = String(touch.clientY);
+          }}
+          onTouchEnd={(event) => {
+            const startY = Number((event.currentTarget as HTMLDivElement).dataset.startY ?? 0);
+            const deltaY = event.changedTouches[0].clientY - startY;
+            if (deltaY > 80) {
+              setServicioActivo(null);
+            }
+          }}
+          className="fixed inset-x-0 bottom-0 z-30 w-full bg-[#111111]/95 border-t border-white/10 flex flex-col animate-in slide-in-from-bottom-10 fade-in duration-300 md:relative md:left-0 md:right-auto md:bottom-auto md:h-[45vh] md:mx-auto md:max-w-[1400px]"
+        >
+          <div className="w-full max-w-[1400px] mx-auto px-5 pb-6 pt-4 md:px-16 lg:px-24 flex flex-col h-full">
+            <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-white/30 md:hidden" />
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">{servicioSeleccionado.label}</p>
+              <button
+                type="button"
+                onClick={() => setServicioActivo(null)}
+                aria-label="Cerrar detalle de servicio"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-xl text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto pb-4 text-white/90 text-[13px] md:text-sm lg:text-[15px] leading-relaxed text-justify space-y-5 pr-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-red-700/50 [&::-webkit-scrollbar-track]:bg-transparent">
               {servicioSeleccionado.descripcion.map((parrafo, i) => (
                 <p key={i} className="whitespace-pre-line">{parrafo}</p>
               ))}
             </div>
 
-            {/* Footer interno */}
-            <div className="shrink-0 py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4 md:gap-8 text-[#cc0000] font-black text-xs md:text-sm uppercase tracking-widest">
-                
-              </div>
-              <div className="flex gap-4">
+            <div className="shrink-0 border-t border-white/10 py-4 md:py-6">
+              <div className="flex items-center justify-end gap-4">
                 {redes.map((red) => (
                   <a
                     key={red.name}
@@ -346,7 +379,6 @@ export default function Servicios() {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       )}

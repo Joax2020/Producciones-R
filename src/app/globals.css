@@ -19,6 +19,22 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
 }
 
 html {
@@ -28,5 +44,13 @@ html {
 body {
   background-color: var(--negro);
   color: var(--blanco);
+  min-height: 100vh;
   overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }

@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   description: "Queda la música...",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -50,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       {/* CAMBIO CLAVE: Usamos aktivGrotesk.className directamente aquí */}
-      <body className={`${aktivGrotesk.className} flex min-h-screen flex-col bg-[#090909] text-white antialiased`}>
+      <body className={`${aktivGrotesk.className} flex min-h-dvh flex-col bg-[#090909] text-white antialiased`}>
         <main className="flex flex-1 flex-col">{children}</main>
       </body>
     </html>

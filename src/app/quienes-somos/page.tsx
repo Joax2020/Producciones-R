@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 
+import MobileMenu from "@/components/MobileMenu";
+
 const redes = [
   {
     name: "Facebook",
@@ -70,7 +72,7 @@ const logosAliados = [
 
 export default function QuienesSomos() {
   return (
-    <div className="h-screen w-full flex flex-col overflow-hidden bg-[#9e4a4a]">
+    <div className="min-h-screen w-full flex flex-col overflow-x-hidden overflow-y-auto bg-[#9e4a4a]">
 
       {/* ── ZONA PRINCIPAL CON IMAGEN DE FONDO ── */}
       <div
@@ -84,13 +86,13 @@ export default function QuienesSomos() {
         <div className="absolute inset-0 bg-white/15 z-0 pointer-events-none"></div>
 
         {/* CONTENEDOR CENTRAL */}
-        <div className="w-full max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 flex flex-col flex-1 min-h-0 relative z-10">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-16 lg:px-24 flex flex-col flex-1 min-h-0 relative z-10">
 
           {/* ── HEADER ── */}
           {/* ── HEADER (Navegación más ajustada) ── */}
-          <header className="w-full flex items-center justify-between pt-6 md:pt-8 pb-4 shrink-0">
+          <header className="w-full flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pt-6 md:pt-8 pb-4 shrink-0">
             
-            <div className="flex gap-3 sm:gap-5">
+            <div className="flex gap-3 sm:gap-5 justify-center sm:justify-start">
               {redes.map((red) => (
                 <a
                   key={red.name}
@@ -106,17 +108,18 @@ export default function QuienesSomos() {
             </div>
 
             {/* Botones de navegación más pegados y proporcionados */}
-            <nav className="flex gap-1.5 md:gap-3">
+            <nav className="hidden md:flex flex-wrap justify-center gap-1.5 sm:justify-end md:gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="bg-[#8b0000] text-white font-bold text-[10px] sm:text-xs md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[80px] sm:w-[95px] md:w-[120px]"
+                  className="bg-[#8b0000] text-white font-bold text-[9px] sm:text-[10px] md:text-sm py-2 md:py-2.5 rounded-md hover:bg-[#660000] transition-colors shadow-lg tracking-wide text-center w-[70px] sm:w-[85px] md:w-[120px]"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
+            <MobileMenu links={navLinks} variant="default" className="absolute right-4 top-5 md:hidden" />
           </header>
 
           {/* ── CONTENIDO: Logo + Texto ── */}
@@ -137,7 +140,7 @@ export default function QuienesSomos() {
                 </h2>
               </div>
 
-              <div className="text-white text-[11px] md:text-xs lg:text-[13px] xl:text-sm leading-snug md:leading-normal text-justify">
+              <div className="text-white text-[14px] md:text-xs lg:text-[13px] xl:text-sm leading-snug md:leading-normal text-justify">
                 <p className="drop-shadow-md">
                   Nacemos en octubre de 2006 con el objetivo de establecernos como productora de eventos artísticos en diversas áreas, abarcando la música, danza, teatro, cine y también incursionando en la edición de libros y consultorías culturales. 
                 </p>
@@ -159,18 +162,18 @@ export default function QuienesSomos() {
 
           {/* ── GRILLA DE SERVICIOS ── */}
           {/* ── GRILLA DE SERVICIOS ── */}
-<div className="flex flex-wrap justify-center w-full gap-x-4 gap-y-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
+<div className="flex flex-wrap justify-center w-full gap-x-2 gap-y-4 md:gap-x-4 md:gap-y-6 pb-4 md:pb-6 shrink-0">
   {servicios.map((servicio, index) => (
     <div
       key={index}
-      className="flex items-center gap-3 w-full md:w-[calc(25%-1rem)] max-w-[260px]"
+      className="flex items-center gap-3 w-[calc(50%-0.5rem)] max-w-[220px] md:w-[calc(25%-1rem)] md:max-w-[260px]"
     >
       <img
         src="/images/estrella.png"
         alt="★"
-        className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
+        className="w-7 h-7 md:w-10 md:h-10 lg:w-12 lg:h-12 shrink-0 object-contain drop-shadow-lg"
       />
-      <span className="text-white text-xs md:text-sm leading-tight text-balance drop-shadow-md">
+      <span className="text-white text-[12px] md:text-sm leading-tight text-balance drop-shadow-md">
         {servicio}
       </span>
     </div>
@@ -184,7 +187,7 @@ export default function QuienesSomos() {
       {/* Padding reducido al mínimo (py-1) para forzar la delgadez */}
       <div className="w-full py-1 flex items-center justify-center shrink-0 z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.15)] bg-[#000]">
         
-        <div className="w-full max-w-[1000px] flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-20 px-8 md:px-16">
+        <div className="w-full max-w-[1000px] flex flex-wrap items-center justify-center gap-4 md:gap-14 lg:gap-20 px-4 md:px-16">
           {logosAliados.map((logo, index) => (
             <img
               key={index}
