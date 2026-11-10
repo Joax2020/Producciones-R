@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+import MobileMenu from "@/components/MobileMenu";
+
 const heroSlides = [
   "/images/carrusel1.jpg",
   "/images/carrusel2.jpg",
@@ -12,6 +14,7 @@ const heroSlides = [
 ];
 
 const menuLinks = [
+  { href: "/", label: "Inicio" },
   { href: "/quienes-somos", label: "Conócenos" },
   { href: "/servicios", label: "Qué hacemos" },
   { href: "/artistas", label: "Artistas" },
@@ -39,6 +42,10 @@ export default function Home() {
           Sitio en construcción
         </span>
       </div>
+
+      <div className="absolute right-4 top-4 z-50 md:hidden">
+        <MobileMenu links={menuLinks} variant="default" />
+      </div>
       {/* Carrusel de fondos */}
       {heroSlides.map((slide, i) => (
         <div
@@ -58,7 +65,7 @@ export default function Home() {
       <div className="relative z-10 flex w-full flex-col items-center justify-between gap-8 py-8 px-4 sm:px-6 md:flex-row md:py-0" style={{ paddingLeft: "clamp(1.25rem, 4vw, 6rem)", paddingRight: "clamp(1.25rem, 4vw, 6rem)" }}>
         
         {/* Columna Izquierda: Menú */}
-        <nav className="flex flex-col gap-4 sm:gap-6 w-full max-w-[220px] md:max-w-none md:w-auto">
+        <nav className="hidden md:flex flex-col gap-4 sm:gap-6 w-full max-w-[220px] md:max-w-none md:w-auto">
           {menuLinks.map((link) => (
             <Link
   key={link.href}

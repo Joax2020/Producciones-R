@@ -43,10 +43,6 @@ export default function MobileMenu({
   const styles = variantStyles[variant] ?? variantStyles.default;
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!isOpen) return;
 
     const handleKeydown = (event: KeyboardEvent) => {
